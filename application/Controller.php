@@ -1,5 +1,4 @@
 <?php
-
 //esta clase no puede ser instanciada
 abstract class Controller
 {
@@ -33,9 +32,14 @@ abstract class Controller
 	}
 
 	protected function verificarRolAdmin(){
-		if (Session::get('role')!= 'Administrador') {
-			$this->redireccionar();
+		foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
+			//echo $funcionarioRol->rol->nombre;
+			if ($funcionarioRol->rol->nombre == 'Administrador(a)') {
+				return true;
+			}
 		}
+
+		$this->redireccionar();
 	}
 
 	protected  function verificarMensajes(){

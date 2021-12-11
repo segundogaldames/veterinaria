@@ -1,5 +1,5 @@
 <form action="" method="post">
-    {if $button == 'Guardar'}
+    {if $button == 'Guardar' || $button == 'Modificar'}
         <div class="mb-3">
             <label for="clave" class="label text-success" style="font-weight: bold; font-size: 14px;">Password <span
                     class="text-danger">*</span></label>

@@ -2,6 +2,7 @@
 
 use models\Funcionario;
 use models\Usuario;
+use models\FuncionarioRol;
 
 class usuariosController extends Controller
 {
@@ -44,13 +45,18 @@ class usuariosController extends Controller
                 exit;
             }
 
-            $clave = Hash::getHash('sha1', $this->getSql('clave'), HASH_KEY);
+            $clave = $this->encriptar($this->getSql('clave'));
 
             $funcionario = Funcionario::select('id')->where('email', $this->getPostParam('email'))->first();
 
             $usuario = Usuario::with('funcionario')->where('clave', $clave)->where('activo', 1)->where('funcionario_id', $funcionario->id)->first();
 
-            //print_r($usuario);exit;
+            $roles = Funcionario::with('funcionarioRol')->find($funcionario->id);
+            // foreach ($roles->funcionarioRol as $funcionarioRol) {
+            //     echo $funcionarioRol->rol->nombre;
+            // }
+
+            //exit;
 
             if (!$usuario) {
                 $this->_view->assign('_error','El email o el password no están registrados');
@@ -61,6 +67,7 @@ class usuariosController extends Controller
             Session::set('autenticado', true);
             Session::set('usuario_id', $usuario->id);
             Session::set('usuario_nombre', $usuario->funcionario->nombre);
+            Session::set('usuario_roles', $roles);
             Session::set('tiempo', time());
 
             $this->redireccionar();
@@ -111,7 +118,44 @@ class usuariosController extends Controller
 
     public function editPassword($id = null)
     {
-        # code...
+        $this->verificarSession();
+        $this->verificarUsuario($id);
+
+        $usuario = Usuario::with('funcionario')->find($this->filtrarInt($id));
+
+        $this->_view->assign('titulo', 'Modificar Password');
+        $this->_view->assign('title', 'Modificar Password');
+        $this->_view->assign('button', 'Modificar');
+        $this->_view->assign('ruta', 'funcionarios/view/' . $usuario->funcionario_id);
+        $this->_view->assign('usuario', $usuario);
+        $this->_view->assign('enviar', CTRL);
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+
+            if (!$this->getSql('clave') || strlen($this->getSql('clave')) < 8) {
+                $this->_view->assign('_error', 'Ingrese una clave de al menos 8 caracteres');
+                $this->_view->renderizar('add');
+                exit;
+            }
+
+            if ($this->getSql('reclave') != $this->getSql('clave')) {
+                $this->_view->assign('_error', 'Las claves ingresadas no coinciden');
+                $this->_view->renderizar('add');
+                exit;
+            }
+
+            $clave = $this->encriptar($this->getSql('clave'));
+
+            $usuario = Usuario::find($this->filtrarInt($id));
+            $usuario->clave = $clave;
+            $usuario->save();
+
+            Session::set('msg_success', 'El password se ha modificado correctamente');
+
+            $this->redireccionar('funcionarios/view/' . $usuario->funcionario_id);
+        }
+
+        $this->_view->renderizar('editPassword');
     }
 
     public function add($funcionario = null)
@@ -150,7 +194,7 @@ class usuariosController extends Controller
                 exit;
             }
 
-            $clave = Hash::getHash('sha1', $this->getSql('clave'), HASH_KEY);
+            $clave = $this->encriptar($this->getSql('clave'));
 
             $usuario = new Usuario;
             $usuario->clave = $clave;
@@ -191,5 +235,12 @@ class usuariosController extends Controller
         if (!$funcionario) {
             $this->redireccionar('funcionarios');
         }
+    }
+
+    private function encriptar($clave)
+    {
+        $clave = Hash::getHash('sha1', $clave, HASH_KEY);
+
+        return $clave;
     }
 }

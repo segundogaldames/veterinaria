@@ -11,8 +11,8 @@ class rolesController extends Controller
 
     public function index()
     {
-
         $this->verificarMensajes();
+        $this->verificarRolAdmin();
 
         $this->_view->assign('titulo','Roles');
         $this->_view->assign('title','Roles');
