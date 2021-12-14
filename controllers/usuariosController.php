@@ -86,6 +86,7 @@ class usuariosController extends Controller
     public function edit($id = null)
     {
         $this->verificarSession();
+        $this->verificarRolAdminSuper();
         $this->verificarUsuario($id);
 
         $usuario = Usuario::with('funcionario')->find($this->filtrarInt($id));
@@ -119,6 +120,7 @@ class usuariosController extends Controller
     public function editPassword($id = null)
     {
         $this->verificarSession();
+        $this->verificarPerfil($id);
         $this->verificarUsuario($id);
 
         $usuario = Usuario::with('funcionario')->find($this->filtrarInt($id));
@@ -194,6 +196,16 @@ class usuariosController extends Controller
                 exit;
             }
 
+            $roles = FuncionarioRol::where('funcionario_id', $this->filtrarInt($funcionario))->first();
+
+            //print_r($roles);exit;
+
+            if (!$roles) {
+                $this->_view->assign('_error', 'Este funcionario no tiene roles asociados...');
+                $this->_view->renderizar('add');
+                exit;
+            }
+
             $clave = $this->encriptar($this->getSql('clave'));
 
             $usuario = new Usuario;
@@ -242,5 +254,16 @@ class usuariosController extends Controller
         $clave = Hash::getHash('sha1', $clave, HASH_KEY);
 
         return $clave;
+    }
+
+    private function verificarPerfil($id)
+    {
+        $usuario = Usuario::select('id')->find($this->filtrarInt($id));
+
+        //print_r($usuario);exit;
+
+        if ($usuario->id != Session::get('usuario_id')) {
+            $this->redireccionar();
+        }
     }
 }

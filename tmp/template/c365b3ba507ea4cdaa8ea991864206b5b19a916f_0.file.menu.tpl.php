@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-06 22:01:12
+/* Smarty version 4.0.0-rc.0, created on 2021-12-13 20:12:03
   from '/var/www/html/veterinaria/views/layout/default/menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61aeb25853d688_98765369',
+  'unifunc' => 'content_61b7d343d8dbd0_94826347',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c365b3ba507ea4cdaa8ea991864206b5b19a916f' => 
     array (
       0 => '/var/www/html/veterinaria/views/layout/default/menu.tpl',
-      1 => 1638838869,
+      1 => 1639437121,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61aeb25853d688_98765369 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61b7d343d8dbd0_94826347 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
 	 	<a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
@@ -30,7 +30,12 @@ function content_61aeb25853d688_98765369 (Smarty_Internal_Template $_smarty_tpl)
 	  </button>
 	  <div class="collapse navbar-collapse" id="ftco-nav">
 	    <ul class="navbar-nav ml-auto">
-	     	<li class="nav-item active"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+			<?php if (((Session::get('autenticado') !== null ))) {?>
+				<li class="nav-item active"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+" class="nav-link"><?php echo Session::get('usuario_nombre');?>
+</a></li>
+			<?php }?>
+	     	<li class="nav-item"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 " class="nav-link">Home</a></li>
 	      	<li class="nav-item"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 admin/" class="nav-link">Administración</a></li>

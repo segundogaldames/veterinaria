@@ -42,6 +42,17 @@ abstract class Controller
 		$this->redireccionar();
 	}
 
+	protected function verificarRolAdminSuper(){
+		foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
+			//echo $funcionarioRol->rol->nombre;
+			if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
+				return true;
+			}
+		}
+
+		$this->redireccionar();
+	}
+
 	protected  function verificarMensajes(){
 		if (Session::get('msg_success')) {
 			$msg_success = Session::get('msg_success');

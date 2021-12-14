@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-06 22:26:09
+/* Smarty version 4.0.0-rc.0, created on 2021-12-13 22:23:33
   from '/var/www/html/veterinaria/views/funcionarios/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61aeb831b48cd4_90126197',
+  'unifunc' => 'content_61b7f215cda2d5_32680451',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18b8628ec338e2ef45bb505e463c6ffa021ba082' => 
     array (
       0 => '/var/www/html/veterinaria/views/funcionarios/view.tpl',
-      1 => 1638840367,
+      1 => 1639445010,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61aeb831b48cd4_90126197 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61b7f215cda2d5_32680451 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -148,6 +148,50 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     <?php } else { ?>
                         <p class="text-info">No hay roles asociados</p>
+                    <?php }?>
+                </div>
+                                <div class="sidebar-box ftco-animate">
+                    <h3>Teléfonos</h3>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+telefonos/add/<?php echo $_smarty_tpl->tpl_vars['funcionario']->value['id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['type']->value;?>
+"
+                        class="btn btn-outline-success btn-sm">Agregar Teléfono</a>
+
+                    <?php if ((isset($_smarty_tpl->tpl_vars['telefonos']->value)) && count($_smarty_tpl->tpl_vars['telefonos']->value)) {?>
+                        <table class="table table-hover table-responsive">
+                            <tr>
+                                <th>Número</th>
+                                <th>Móvil</th>
+                            </tr>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['telefonos']->value, 'telefono');
+$_smarty_tpl->tpl_vars['telefono']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['telefono']->value) {
+$_smarty_tpl->tpl_vars['telefono']->do_else = false;
+?>
+                                <tr>
+                                    <td>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+telefonos/view/<?php echo $_smarty_tpl->tpl_vars['telefono']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['telefono']->value['numero'];?>
+</a>
+                                    </td>
+                                    <td>
+                                        <?php if ($_smarty_tpl->tpl_vars['telefono']->value['movil'] == 1) {?>
+                                            Si
+                                        <?php } else { ?>
+                                            No
+                                        <?php }?>
+                                    </td>
+                                </tr>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+                        </table>
+                    <?php } else { ?>
+                        <p class="text-info">No hay teléfonos asociados</p>
                     <?php }?>
                 </div>
             </div>
