@@ -9,6 +9,8 @@ class funcionariosController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->verificarSession();
+        $this->verificarRolAdminSuper();
     }
 
     public function index()
