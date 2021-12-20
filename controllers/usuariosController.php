@@ -136,13 +136,13 @@ class usuariosController extends Controller
 
             if (!$this->getSql('clave') || strlen($this->getSql('clave')) < 8) {
                 $this->_view->assign('_error', 'Ingrese una clave de al menos 8 caracteres');
-                $this->_view->renderizar('add');
+                $this->_view->renderizar('editPassword');
                 exit;
             }
 
             if ($this->getSql('reclave') != $this->getSql('clave')) {
                 $this->_view->assign('_error', 'Las claves ingresadas no coinciden');
-                $this->_view->renderizar('add');
+                $this->_view->renderizar('editPassword');
                 exit;
             }
 
@@ -160,36 +160,45 @@ class usuariosController extends Controller
         $this->_view->renderizar('editPassword');
     }
 
-    public function alterPassword($id = null)
+    public function alterPassword()
     {
         //$this->verificarUsuarioAlter($id);
 
-        $usuario = Usuario::with('funcionario')->find($this->filtrarInt($id));
+        $usuario_exist = Usuario::find(Session::get('usuario_alter'));
+
+        //print_r($usuario_exist->id);exit;
+
+        // if (!$usuario_exist) {
+        //     Session::set('msg_error','El password no pudo ser recuperado');
+        //     $this->redireccionar();
+        // }
+
+        // Session::destroy('usuario_alter');
 
         $this->_view->assign('titulo', 'Modificar Password');
         $this->_view->assign('title', 'Modificar Password');
         $this->_view->assign('button', 'Modificar');
         $this->_view->assign('ruta', 'index');
-        $this->_view->assign('usuario', $usuario);
+        $this->_view->assign('usuario', $usuario_exist);
         $this->_view->assign('enviar', CTRL);
 
         if ($this->getAlphaNum('enviar') == CTRL) {
 
             if (!$this->getSql('clave') || strlen($this->getSql('clave')) < 8) {
                 $this->_view->assign('_error', 'Ingrese una clave de al menos 8 caracteres');
-                $this->_view->renderizar('add');
+                $this->_view->renderizar('alterPassword');
                 exit;
             }
 
             if ($this->getSql('reclave') != $this->getSql('clave')) {
                 $this->_view->assign('_error', 'Las claves ingresadas no coinciden');
-                $this->_view->renderizar('add');
+                $this->_view->renderizar('alterPassword');
                 exit;
             }
 
             $clave = $this->encriptar($this->getSql('clave'));
 
-            $usuario = Usuario::find($this->filtrarInt($id));
+            $usuario = Usuario::find($usuario_exist->id);
             $usuario->clave = $clave;
             $usuario->save();
 
@@ -198,7 +207,7 @@ class usuariosController extends Controller
             $this->redireccionar('usuarios/login');
         }
 
-        $this->_view->renderizar('editPassword');
+        $this->_view->renderizar('alterPassword');
     }
 
     public function recuperar()
