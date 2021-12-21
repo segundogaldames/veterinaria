@@ -9,6 +9,16 @@
         <label for="movil" class="label text-success" style="font-weight: bold; font-size: 14px;">Tipo <span
                 class="text-danger">*</span></label>
         <select name="movil" class="form-control">
+            {if $button == 'Editar'}
+                <option value="{$telefono.movil}">
+                    {if $telefono.movil == 1}
+                        Móvil
+                    {else}
+                        Fijo
+                    {/if}
+                </option>
+            {/if}
+
             <option value="">Seleccione...</option>
             <option value="1">Móvil</option>
             <option value="2">Fijo</option>

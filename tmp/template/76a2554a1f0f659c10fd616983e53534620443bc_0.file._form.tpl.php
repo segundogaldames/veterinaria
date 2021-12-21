@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-13 22:06:54
+/* Smarty version 4.0.0-rc.0, created on 2021-12-20 21:37:05
   from '/var/www/html/veterinaria/views/telefonos/_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61b7ee2e7eb527_42253036',
+  'unifunc' => 'content_61c121b1ca6c15_34704534',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '76a2554a1f0f659c10fd616983e53534620443bc' => 
     array (
       0 => '/var/www/html/veterinaria/views/telefonos/_form.tpl',
-      1 => 1639443981,
+      1 => 1640047017,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61b7ee2e7eb527_42253036 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c121b1ca6c15_34704534 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form action="" method="post">
     <div class="mb-3">
         <label for="numero" class="label text-success" style="font-weight: bold; font-size: 14px;">Teléfono <span
@@ -33,6 +33,17 @@ function content_61b7ee2e7eb527_42253036 (Smarty_Internal_Template $_smarty_tpl)
         <label for="movil" class="label text-success" style="font-weight: bold; font-size: 14px;">Tipo <span
                 class="text-danger">*</span></label>
         <select name="movil" class="form-control">
+            <?php if ($_smarty_tpl->tpl_vars['button']->value == 'Editar') {?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['telefono']->value['movil'];?>
+">
+                    <?php if ($_smarty_tpl->tpl_vars['telefono']->value['movil'] == 1) {?>
+                        Móvil
+                    <?php } else { ?>
+                        Fijo
+                    <?php }?>
+                </option>
+            <?php }?>
+
             <option value="">Seleccione...</option>
             <option value="1">Móvil</option>
             <option value="2">Fijo</option>

@@ -45,6 +45,11 @@
                         class="btn btn-outline-primary btn-sm">Editar</a>
                     <a href="{$_layoutParams.root}{$ruta}" class="btn btn-outline-primary btn-sm">Volver</a>
                 </p>
+                <form name="form" action="{$_layoutParams.root}telefonos/delete/{$telefono.id}"
+                    method="post">
+                    <input type="hidden" name="enviar" value="{$enviar}">
+                    <button type="button" onclick="eliminar('telefono');" class="btn btn-outline-warning">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>

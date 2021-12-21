@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-13 22:44:25
+/* Smarty version 4.0.0-rc.0, created on 2021-12-20 21:47:46
   from '/var/www/html/veterinaria/views/telefonos/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61b7f6f9e18238_12222849',
+  'unifunc' => 'content_61c124323cb9a3_34105458',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3a082e9e5c10ba7c243abbe726782799793e61b3' => 
     array (
       0 => '/var/www/html/veterinaria/views/telefonos/view.tpl',
-      1 => 1639446213,
+      1 => 1640047661,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61b7f6f9e18238_12222849 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61c124323cb9a3_34105458 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -82,6 +82,14 @@ telefonos/edit/<?php echo $_smarty_tpl->tpl_vars['telefono']->value['id'];?>
 echo $_smarty_tpl->tpl_vars['ruta']->value;?>
 " class="btn btn-outline-primary btn-sm">Volver</a>
                 </p>
+                <form name="form" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+telefonos/delete/<?php echo $_smarty_tpl->tpl_vars['telefono']->value['id'];?>
+"
+                    method="post">
+                    <input type="hidden" name="enviar" value="<?php echo $_smarty_tpl->tpl_vars['enviar']->value;?>
+">
+                    <button type="button" onclick="eliminar('telefono');" class="btn btn-outline-warning">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>

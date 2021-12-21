@@ -16,6 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clientes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rut` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `comuna_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientes`
+--
+
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `comunas`
 --
 
@@ -192,7 +221,7 @@ CREATE TABLE `telefonos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +258,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'163bb9b6ef44ff46d9718d0e842dd7502e96030b',1,1,'2021-12-06 20:21:05','2021-12-11 17:28:36'),(2,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,2,'2021-12-13 20:02:50','2021-12-13 20:02:50'),(3,'63aa9f5a93688fd219c1fb6a41a456019dd58378',2,3,'2021-12-13 20:08:28','2021-12-18 16:57:39');
+INSERT INTO `usuarios` VALUES (1,'163bb9b6ef44ff46d9718d0e842dd7502e96030b',1,1,'2021-12-06 20:21:05','2021-12-11 17:28:36'),(2,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,2,'2021-12-13 20:02:50','2021-12-13 20:02:50'),(3,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,3,'2021-12-13 20:08:28','2021-12-20 20:38:00');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -242,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-18 18:05:03
+-- Dump completed on 2021-12-20 22:51:26
