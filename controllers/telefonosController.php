@@ -1,6 +1,7 @@
 <?php
 use models\Telefono;
 use models\Funcionario;
+use models\Cliente;
 
 class telefonosController extends Controller
 {
@@ -27,8 +28,8 @@ class telefonosController extends Controller
             $usuario = Funcionario::find($telefono->telefonoable_id);
             $ruta = 'funcionarios/view/' . $usuario->id;
         }elseif ($telefono->telefonoable_type == 'Cliente') {
-            $usuario = '';
-            $ruta = '';
+            $usuario = Cliente::find($telefono->telefonoable_id);
+            $ruta = 'clientes/view/' . $usuario->id;
         }elseif ($telefono->telefonoable_type == 'Proveedor') {
             $usuario = '';
             $ruta = '';
@@ -95,8 +96,8 @@ class telefonosController extends Controller
             $modeloUsuario = Funcionario::find($this->filtrarInt($type_id));
             $type = $type;
         }elseif ($type == 'Cliente') {
-            $ruta = '';
-            $modeloUsuario = '';
+            $ruta = 'clientes/view/' . $this->filtrarInt($type_id);
+            $modeloUsuario = Cliente::find($this->filtrarInt($type_id));
             $type = $type;
         }elseif ($type == 'Proveedor') {
             $ruta = '';
@@ -161,8 +162,8 @@ class telefonosController extends Controller
             $usuario = Funcionario::select('id')->find($telefono->telefonoable_id);
             $ruta = 'funcionarios/view/' . $usuario->id;
         }elseif ($telefono->telefonoable_type == 'Cliente') {
-            $usuario = '';
-            $ruta = '';
+            $usuario = Cliente::select('id')->find($telefono->telefonoable_id);
+            $ruta = 'clientes/view/' . $usuario->id;
         }elseif ($telefono->telefonoable_type == 'Proveedor') {
             $usuario = '';
             $ruta = '';
@@ -170,7 +171,7 @@ class telefonosController extends Controller
 
         $telefono->delete();
 
-        Session::set('msg_success','El teléfono del funcionario se ha eliminado correctamente');
+        Session::set('msg_success','El teléfono se ha eliminado correctamente');
 
         $this->redireccionar($ruta);
     }

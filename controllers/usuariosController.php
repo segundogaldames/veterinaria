@@ -64,11 +64,23 @@ class usuariosController extends Controller
                 exit;
             }
 
+            //comentarios tarea 6
+            //registrar ip
+            //registrar la fecha hora de ingreso
+
             Session::set('autenticado', true);
             Session::set('usuario_id', $usuario->id);
             Session::set('usuario_nombre', $usuario->funcionario->nombre);
             Session::set('usuario_roles', $roles);
             Session::set('tiempo', time());
+
+            // $acceso = new Acceso;
+            // $acceso->ip =
+            // $acceso->usuario_id = Session::get('usuario_id');
+            // $acceso->save();
+
+            // $acceso = Acceso::select('id')->where('usuario_id', Session::get('usuario_id') )->first();
+            // Session::set('ingreso', $acceso->id);
 
             $this->redireccionar();
         }
@@ -78,6 +90,9 @@ class usuariosController extends Controller
 
     public function logout()
     {
+        // $acceso = Usuario::find(Session::get('ingreso'));
+        // $acceso->save();
+
         Session::destroy();
 
         $this->redireccionar();
