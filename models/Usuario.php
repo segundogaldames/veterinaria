@@ -12,4 +12,9 @@ class Usuario extends Model
     {
         return $this->belongsTo(Funcionario::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }
