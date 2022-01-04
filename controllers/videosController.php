@@ -32,6 +32,8 @@ class videosController extends Controller
 
     public function edit($id = null)
     {
+        $this->verificarSession();
+        $this->verificarRolAdmin();
         $this->verificarVideo($id);
 
         $this->_view->assign('titulo','Editar Video');
@@ -81,6 +83,8 @@ class videosController extends Controller
 
     public function add()
     {
+        $this->verificarSession();
+        $this->verificarRolAdmin();
         $this->_view->assign('titulo','Nuevo Video');
         $this->_view->assign('title','Nuevo Video');
         $this->_view->assign('button','Guardar');
@@ -129,6 +133,8 @@ class videosController extends Controller
 
     public function delete($id = null)
     {
+        $this->verificarSession();
+        $this->verificarRolAdmin();
         $this->filtrarInt($id);
         $this->verificarVideo($id);
 

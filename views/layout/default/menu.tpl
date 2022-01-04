@@ -10,6 +10,7 @@
 				<li class="nav-item active"><a href="{$_layoutParams.root}" class="nav-link">{Session::get('usuario_nombre')}</a></li>
 			{/if}
 	     	<li class="nav-item"><a href="{$_layoutParams.root}" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="{$_layoutParams.root}videos" class="nav-link">Videos</a></li>
 
 			{if isset(Session::get('autenticado'))}
 				{foreach from=Session::get('usuario_roles')->funcionarioRol item=funcionarioRol}

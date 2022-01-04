@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-18 16:55:43
+/* Smarty version 4.0.0-rc.0, created on 2022-01-03 21:04:08
   from '/var/www/html/veterinaria/views/layout/default/menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61be3cbf57e6c1_19196172',
+  'unifunc' => 'content_61d38ef847b883_35957740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c365b3ba507ea4cdaa8ea991864206b5b19a916f' => 
     array (
       0 => '/var/www/html/veterinaria/views/layout/default/menu.tpl',
-      1 => 1639857340,
+      1 => 1641254645,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61be3cbf57e6c1_19196172 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61d38ef847b883_35957740 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
 	 	<a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
@@ -37,6 +37,8 @@ function content_61be3cbf57e6c1_19196172 (Smarty_Internal_Template $_smarty_tpl)
 			<?php }?>
 	     	<li class="nav-item"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 " class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+videos" class="nav-link">Videos</a></li>
 
 			<?php if (((Session::get('autenticado') !== null ))) {?>
 				<?php

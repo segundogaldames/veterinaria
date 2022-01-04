@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-03 19:34:49
+/* Smarty version 4.0.0-rc.0, created on 2022-01-03 21:02:10
   from '/var/www/html/veterinaria/views/videos/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61d37a09b8acc1_82713606',
+  'unifunc' => 'content_61d38e827fc4c9_76706678',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f187be7f9bf12ec57b0fd36a0eff8a46b9d86993' => 
     array (
       0 => '/var/www/html/veterinaria/views/videos/view.tpl',
-      1 => 1641249259,
+      1 => 1641254489,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61d37a09b8acc1_82713606 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61d38e827fc4c9_76706678 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
