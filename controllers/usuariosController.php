@@ -49,40 +49,39 @@ class usuariosController extends Controller
 
             $funcionario = Funcionario::select('id')->where('email', $this->getPostParam('email'))->first();
 
-            $usuario = Usuario::with('funcionario')->where('clave', $clave)->where('activo', 1)->where('funcionario_id', $funcionario->id)->first();
+            if ($funcionario) {
+                # code...
+                $usuario = Usuario::where('clave', $clave)->where('activo', 1)->where('funcionario_id', $funcionario->id)->first();
 
-            $roles = Funcionario::with('funcionarioRol')->find($funcionario->id);
-            // foreach ($roles->funcionarioRol as $funcionarioRol) {
-            //     echo $funcionarioRol->rol->nombre;
-            // }
+                if (!$usuario) {
+                    $this->_view->assign('_error','El email o el password no están registrados');
+                    $this->_view->renderizar('login');
+                    exit;
+                }
+                $roles = Funcionario::with('funcionarioRol')->find($funcionario->id);
 
-            //exit;
+                Session::set('autenticado', true);
+                Session::set('usuario_id', $usuario->id);
+                Session::set('usuario_nombre', $usuario->funcionario->nombre);
+                Session::set('usuario_roles', $roles);
+                Session::set('tiempo', time());
 
-            if (!$usuario) {
+                // $acceso = new Acceso;
+                // $acceso->ip =
+                // $acceso->usuario_id = Session::get('usuario_id');
+                // $acceso->save();
+
+                // $acceso = Acceso::select('id')->where('usuario_id', Session::get('usuario_id') )->first();
+                // Session::set('ingreso', $acceso->id);
+
+            }else{
                 $this->_view->assign('_error','El email o el password no están registrados');
                 $this->_view->renderizar('login');
                 exit;
             }
 
-            //comentarios tarea 6
-            //registrar ip
-            //registrar la fecha hora de ingreso
-
-            Session::set('autenticado', true);
-            Session::set('usuario_id', $usuario->id);
-            Session::set('usuario_nombre', $usuario->funcionario->nombre);
-            Session::set('usuario_roles', $roles);
-            Session::set('tiempo', time());
-
-            // $acceso = new Acceso;
-            // $acceso->ip =
-            // $acceso->usuario_id = Session::get('usuario_id');
-            // $acceso->save();
-
-            // $acceso = Acceso::select('id')->where('usuario_id', Session::get('usuario_id') )->first();
-            // Session::set('ingreso', $acceso->id);
-
             $this->redireccionar();
+
         }
 
         $this->_view->renderizar('login');
