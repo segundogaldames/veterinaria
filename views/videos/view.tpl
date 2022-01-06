@@ -31,15 +31,24 @@
                     </tr>
                 </table>
                 <p>
-                    <a href="{$_layoutParams.root}videos/edit/{$video.id}"
-                        class="btn btn-outline-primary btn-sm">Editar</a>
                     <a href="{$_layoutParams.root}videos/" class="btn btn-outline-primary btn-sm">Volver</a>
+
+                    {if isset(Session::get('autenticado'))}
+                        {foreach from=Session::get('usuario_roles')->funcionarioRol item=funcionarioRol}
+                            {if $funcionarioRol.rol.nombre == 'Administrador(a)'}
+                                <a href="{$_layoutParams.root}videos/edit/{$video.id}"
+                                    class="btn btn-outline-primary btn-sm">Editar</a>
+
+                                <form name="form" action="{$_layoutParams.root}videos/delete/{$video.id}" method="post">
+                                    <input type="hidden" name="enviar" value="{$enviar}">
+                                    <button type="button" onclick="eliminar('video','videos');"
+                                    class="btn btn-outline-warning">Eliminar</button>
+                                </form>
+                            {/if}
+                        {/foreach}
+
+                    {/if}
                 </p>
-                <form name="form" action="{$_layoutParams.root}videos/delete/{$video.id}" method="post">
-                    <input type="hidden" name="enviar" value="{$enviar}">
-                    <button type="button" onclick="eliminar('video','videos');"
-                        class="btn btn-outline-warning">Eliminar</button>
-                </form>
             </div>
         </div>
     </div>

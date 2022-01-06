@@ -130,6 +130,33 @@ INSERT INTO `funcionarios` VALUES (1,'16800356-9','Gabriela Nuñez Espinoza','ga
 UNLOCK TABLES;
 
 --
+-- Table structure for table `paciente_tipos`
+--
+
+DROP TABLE IF EXISTS `paciente_tipos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `paciente_tipos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `exotico` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paciente_tipos`
+--
+
+LOCK TABLES `paciente_tipos` WRITE;
+/*!40000 ALTER TABLE `paciente_tipos` DISABLE KEYS */;
+INSERT INTO `paciente_tipos` VALUES (1,'Perro',2,'2022-01-05 23:07:40','2022-01-05 23:27:05');
+/*!40000 ALTER TABLE `paciente_tipos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `regiones`
 --
 
@@ -278,7 +305,7 @@ CREATE TABLE `videos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +314,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01');
+INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01'),(4,'Proyecto Veterinaria - Video 1','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/5Qr6iKdRChg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-04 00:00:17','2022-01-04 00:00:17');
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -300,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-03 20:54:53
+-- Dump completed on 2022-01-05 23:56:24

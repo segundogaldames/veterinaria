@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-03 19:06:04
+/* Smarty version 4.0.0-rc.0, created on 2022-01-05 22:11:26
   from '/var/www/html/veterinaria/views/videos/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61d3734c643fe7_40735592',
+  'unifunc' => 'content_61d641be2380d6_16661392',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5910aa47d15e7c69f4edb6454135d342c2f1311d' => 
     array (
       0 => '/var/www/html/veterinaria/views/videos/index.tpl',
-      1 => 1641247560,
+      1 => 1641431479,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61d3734c643fe7_40735592 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61d641be2380d6_16661392 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -31,8 +31,22 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                 <h3>
                     <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                    <?php if (((Session::get('autenticado') !== null ))) {?>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, Session::get('usuario_roles')->funcionarioRol, 'funcionarioRol');
+$_smarty_tpl->tpl_vars['funcionarioRol']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['funcionarioRol']->value) {
+$_smarty_tpl->tpl_vars['funcionarioRol']->do_else = false;
+?>
+                            <?php if ($_smarty_tpl->tpl_vars['funcionarioRol']->value['rol']['nombre'] == 'Administrador(a)') {?>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 videos/add" class="btn btn-outline-success btn-sm">Crear Video</a>
+                            <?php }?>
+                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+                    <?php }?>
                 </h3>
 
                 <?php $_smarty_tpl->_subTemplateRender("file:../partials/_mensajes.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

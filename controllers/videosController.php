@@ -85,6 +85,7 @@ class videosController extends Controller
     {
         $this->verificarSession();
         $this->verificarRolAdmin();
+
         $this->_view->assign('titulo','Nuevo Video');
         $this->_view->assign('title','Nuevo Video');
         $this->_view->assign('button','Guardar');

@@ -8,7 +8,7 @@
     <div class="mb-3">
         <label for="name" class="label text-success" style="font-weight: bold; font-size: 14px;">Link <span
                 class="text-danger">*</span></label>
-        <textarea name="link" class="form-control" id="" rows="4" style="resize: none;" aria-describedby="" placeholder="Link del video">{$video.link|default:""}</textarea>
+        <textarea name="link" class="form-control" id="" rows="6" style="resize: none;" aria-describedby="" placeholder="Link del video">{$video.link|default:""}</textarea>
     </div>
     <input type="hidden" name="enviar" value="{$enviar}">
     <button type="submit" class="btn btn-outline-success">{$button}</button>

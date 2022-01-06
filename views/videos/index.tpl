@@ -4,7 +4,14 @@
             <div class="sidebar-box ftco-animate">
                 <h3>
                     {$title}
-                    <a href="{$_layoutParams.root}videos/add" class="btn btn-outline-success btn-sm">Crear Video</a>
+                    {if isset(Session::get('autenticado'))}
+                        {foreach from=Session::get('usuario_roles')->funcionarioRol item=funcionarioRol}
+                            {if $funcionarioRol.rol.nombre == 'Administrador(a)'}
+                                <a href="{$_layoutParams.root}videos/add" class="btn btn-outline-success btn-sm">Crear Video</a>
+                            {/if}
+                        {/foreach}
+
+                    {/if}
                 </h3>
 
                 {include file="../partials/_mensajes.tpl"}
