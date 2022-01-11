@@ -81,6 +81,35 @@
                         <p class="text-info">No hay teléfonos asociados</p>
                     {/if}
                 </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Pacientes</h3>
+                    <a href="{$_layoutParams.root}pacientes/add/{$cliente.id}"
+                        class="btn btn-outline-success btn-sm">Agregar Paciente</a>
+
+                    {if isset($cliente.pacientes) && count($cliente.pacientes)}
+                        <table class="table table-hover table-responsive">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Edad</th>
+                                <th>Peso</th>
+                            </tr>
+                            {foreach from=$cliente.pacientes item=paciente}
+                                <tr>
+                                    <td>
+                                        <a href="{$_layoutParams.root}pacientes/view/{$paciente.id}">{$paciente.nombre}</a>
+                                    </td>
+                                    <td>{$paciente.pacienteTipo.nombre}</td>
+                                    <td>{$paciente.edad}</td>
+                                    <td>{$paciente.peso}</td>
+                                </tr>
+                            {/foreach}
+
+                        </table>
+                    {else}
+                        <p class="text-info">No hay pacientes asociados</p>
+                    {/if}
+                </div>
             </div>
         </div>
     </div>

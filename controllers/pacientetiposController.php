@@ -79,8 +79,6 @@ class pacientetiposController extends Controller
 
     public function add()
     {
-        $this->verificarMensajes();
-
         $this->_view->assign('titulo','Nuevo Tipo Pacientes');
         $this->_view->assign('title','Nuevo Tipo Pacientes');
         $this->_view->assign('button', 'Guardar');

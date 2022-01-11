@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2021-12-27 22:26:05
+/* Smarty version 4.0.0-rc.0, created on 2022-01-10 21:19:24
   from '/var/www/html/veterinaria/views/clientes/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61ca67adb645e6_97171009',
+  'unifunc' => 'content_61dccd0ce84eb1_67963368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e44b40ac92b21ce97891df4b524d54bc36df833' => 
     array (
       0 => '/var/www/html/veterinaria/views/clientes/view.tpl',
-      1 => 1640654585,
+      1 => 1641860360,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61ca67adb645e6_97171009 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61dccd0ce84eb1_67963368 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -128,6 +128,50 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </table>
                     <?php } else { ?>
                         <p class="text-info">No hay teléfonos asociados</p>
+                    <?php }?>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Pacientes</h3>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+pacientes/add/<?php echo $_smarty_tpl->tpl_vars['cliente']->value['id'];?>
+"
+                        class="btn btn-outline-success btn-sm">Agregar Paciente</a>
+
+                    <?php if ((isset($_smarty_tpl->tpl_vars['cliente']->value['pacientes'])) && count($_smarty_tpl->tpl_vars['cliente']->value['pacientes'])) {?>
+                        <table class="table table-hover table-responsive">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Edad</th>
+                                <th>Peso</th>
+                            </tr>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cliente']->value['pacientes'], 'paciente');
+$_smarty_tpl->tpl_vars['paciente']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['paciente']->value) {
+$_smarty_tpl->tpl_vars['paciente']->do_else = false;
+?>
+                                <tr>
+                                    <td>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+pacientes/view/<?php echo $_smarty_tpl->tpl_vars['paciente']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['paciente']->value['nombre'];?>
+</a>
+                                    </td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['pacienteTipo']['nombre'];?>
+</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['edad'];?>
+</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['peso'];?>
+</td>
+                                </tr>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+                        </table>
+                    <?php } else { ?>
+                        <p class="text-info">No hay pacientes asociados</p>
                     <?php }?>
                 </div>
             </div>

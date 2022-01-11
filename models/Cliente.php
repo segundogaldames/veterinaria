@@ -12,4 +12,9 @@ class Cliente extends Model
     {
         return $this->belongsTo(Comuna::class);
     }
+
+    public function pacientes()
+    {
+        return $this->hasMany(Paciente::class);
+    }
 }

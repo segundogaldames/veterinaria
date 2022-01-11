@@ -143,7 +143,7 @@ CREATE TABLE `paciente_tipos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,8 +152,40 @@ CREATE TABLE `paciente_tipos` (
 
 LOCK TABLES `paciente_tipos` WRITE;
 /*!40000 ALTER TABLE `paciente_tipos` DISABLE KEYS */;
-INSERT INTO `paciente_tipos` VALUES (1,'Perro',2,'2022-01-05 23:07:40','2022-01-05 23:27:05');
+INSERT INTO `paciente_tipos` VALUES (1,'Perro',2,'2022-01-05 23:07:40','2022-01-05 23:27:05'),(2,'Gato',2,'2022-01-10 19:50:58','2022-01-10 19:52:01'),(3,'Tortuga de tierra',1,'2022-01-10 19:51:22','2022-01-10 19:51:22');
 /*!40000 ALTER TABLE `paciente_tipos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pacientes`
+--
+
+DROP TABLE IF EXISTS `pacientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pacientes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `codigo_chip` varchar(255) DEFAULT NULL,
+  `edad` int NOT NULL,
+  `tamanio` int NOT NULL,
+  `peso` decimal(8,6) NOT NULL,
+  `paciente_tipo_id` int NOT NULL,
+  `cliente_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pacientes`
+--
+
+LOCK TABLES `pacientes` WRITE;
+/*!40000 ALTER TABLE `pacientes` DISABLE KEYS */;
+INSERT INTO `pacientes` VALUES (1,'Coco','',3,2,0.000000,1,1,'2022-01-10 21:14:01','2022-01-10 21:14:01'),(2,'Minino','',2,1,3.750000,2,1,'2022-01-10 21:15:13','2022-01-10 21:15:13');
+/*!40000 ALTER TABLE `pacientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -327,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-06 18:14:05
+-- Dump completed on 2022-01-10 21:21:18

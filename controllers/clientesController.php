@@ -2,6 +2,7 @@
 use models\Cliente;
 use models\Comuna;
 use models\Telefono;
+use models\Paciente;
 
 class clientesController extends Controller
 {
@@ -29,7 +30,7 @@ class clientesController extends Controller
 
         $this->_view->assign('titulo','Clientes');
         $this->_view->assign('title','Clientes');
-        $this->_view->assign('cliente', Cliente::with('comuna')->find($this->filtrarInt($id)));
+        $this->_view->assign('cliente', Cliente::with(['comuna','pacientes'])->find($this->filtrarInt($id)));
         $this->_view->assign('type', 'Cliente');
         $this->_view->assign('telefonos', Telefono::where('telefonoable_id',$this->filtrarInt($id))->where('telefonoable_type','Cliente')->get());
         $this->_view->renderizar('view');
