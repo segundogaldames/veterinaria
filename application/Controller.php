@@ -101,6 +101,17 @@ abstract class Controller
 		return 0;
 	}
 
+	protected function getFloat($clave)
+	{
+
+		if(isset($_POST[$clave]) && !empty($_POST[$clave])):
+			$_POST[$clave] = filter_input(INPUT_POST, $clave, FILTER_VALIDATE_FLOAT); //valida numeros tipo integer
+			return $_POST[$clave];
+		endif;
+
+		return 0;
+	}
+
 	protected function redireccionar($ruta = false)
 	{
 		if($ruta):

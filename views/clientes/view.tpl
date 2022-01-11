@@ -100,8 +100,8 @@
                                         <a href="{$_layoutParams.root}pacientes/view/{$paciente.id}">{$paciente.nombre}</a>
                                     </td>
                                     <td>{$paciente.pacienteTipo.nombre}</td>
-                                    <td>{$paciente.edad}</td>
-                                    <td>{$paciente.peso}</td>
+                                    <td>{$paciente.edad} año(s)</td>
+                                    <td>{$paciente.peso|number_format:3} Kg.</td>
                                 </tr>
                             {/foreach}
 

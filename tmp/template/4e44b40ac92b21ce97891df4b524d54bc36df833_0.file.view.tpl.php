@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-10 21:19:24
+/* Smarty version 4.0.0-rc.0, created on 2022-01-10 23:09:27
   from '/var/www/html/veterinaria/views/clientes/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61dccd0ce84eb1_67963368',
+  'unifunc' => 'content_61dce6d73e5443_07203731',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e44b40ac92b21ce97891df4b524d54bc36df833' => 
     array (
       0 => '/var/www/html/veterinaria/views/clientes/view.tpl',
-      1 => 1641860360,
+      1 => 1641866963,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61dccd0ce84eb1_67963368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61dce6d73e5443_07203731 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -161,9 +161,9 @@ pacientes/view/<?php echo $_smarty_tpl->tpl_vars['paciente']->value['id'];?>
                                     <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['pacienteTipo']['nombre'];?>
 </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['edad'];?>
-</td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['paciente']->value['peso'];?>
-</td>
+ año(s)</td>
+                                    <td><?php echo number_format($_smarty_tpl->tpl_vars['paciente']->value['peso'],3);?>
+ Kg.</td>
                                 </tr>
                             <?php
 }
