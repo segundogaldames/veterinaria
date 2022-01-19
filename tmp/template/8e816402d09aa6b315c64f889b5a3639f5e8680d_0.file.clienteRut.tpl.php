@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-19 01:29:19
-  from '/var/www/html/veterinaria/views/clientes/index.tpl' */
+/* Smarty version 4.0.0-rc.0, created on 2022-01-19 01:33:44
+  from '/var/www/html/veterinaria/views/clientes/clienteRut.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61e7939f6fcca1_14774564',
+  'unifunc' => 'content_61e794a83f8d08_37555419',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '62b07b6f8970d4e5a3d4a79b12843f99248d82cb' => 
+    '8e816402d09aa6b315c64f889b5a3639f5e8680d' => 
     array (
-      0 => '/var/www/html/veterinaria/views/clientes/index.tpl',
-      1 => 1642566556,
+      0 => '/var/www/html/veterinaria/views/clientes/clienteRut.tpl',
+      1 => 1642566819,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61e7939f6fcca1_14774564 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61e794a83f8d08_37555419 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="col-md-10 ftco-animate">
@@ -30,7 +30,8 @@ function content_61e7939f6fcca1_14774564 (Smarty_Internal_Template $_smarty_tpl)
                     <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 
                     <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-clientes/add" class="btn btn-outline-success btn-sm">Agregar Cliente</a>
+clientes/add" class="btn btn-outline-success btn-sm">Agregar
+                        Cliente</a>
                 </h3>
 
                 <?php $_smarty_tpl->_subTemplateRender("file:../partials/_mensajes.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

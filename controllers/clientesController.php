@@ -20,6 +20,7 @@ class clientesController extends Controller
         $this->_view->assign('titulo', 'Clientes');
         $this->_view->assign('title', 'Clientes');
         $this->_view->assign('clientes', Cliente::with('comuna')->orderBy('nombre')->get());
+        $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }
 
@@ -34,6 +35,23 @@ class clientesController extends Controller
         $this->_view->assign('type', 'Cliente');
         $this->_view->assign('telefonos', Telefono::where('telefonoable_id',$this->filtrarInt($id))->where('telefonoable_type','Cliente')->get());
         $this->_view->renderizar('view');
+    }
+
+    public function clienteRut()
+    {
+        $this->_view->assign('titulo', 'Buscar Cliente');
+        $this->_view->assign('title', 'Buscar Cliente');
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+            //print_r($_POST);exit;
+
+            $cliente = Cliente::with('comuna')->where('rut', $this->getSql('rut'))->get();
+            //print_r($cliente);exit;
+
+            $this->_view->assign('clientes', $cliente);
+        }
+
+        $this->_view->renderizar('clienteRut');
     }
 
     public function edit($id = null)
@@ -110,8 +128,8 @@ class clientesController extends Controller
         if ($this->getAlphaNum('enviar') == CTRL) {
             $this->_view->assign('cliente', $_POST);
 
-            if (!$this->validaRut($this->getSql('rut')) ) {
-                $this->_view->assign('_error', 'Ingrese el rut del cliente');
+            if (!$this->getSql('rut') || !$this->validaRut($this->getSql('rut')) ) {
+                $this->_view->assign('_error', 'El RUT ingresado no es válido');
                 $this->_view->renderizar('add');
                 exit;
             }

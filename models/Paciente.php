@@ -17,4 +17,9 @@ class Paciente extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function servicios()
+    {
+        return $this->hasMany(Servicio::class);
+    }
 }

@@ -4,7 +4,8 @@
             <div class="sidebar-box ftco-animate">
                 <h3>
                     {$title}
-                    <a href="{$_layoutParams.root}clientes/add" class="btn btn-outline-success btn-sm">Agregar Cliente</a>
+                    <a href="{$_layoutParams.root}clientes/add" class="btn btn-outline-success btn-sm">Agregar
+                        Cliente</a>
                 </h3>
 
                 {include file="../partials/_mensajes.tpl"}

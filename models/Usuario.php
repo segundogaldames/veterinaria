@@ -17,4 +17,9 @@ class Usuario extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function servicios()
+    {
+        return $this->hasMany(Servicio::class);
+    }
 }

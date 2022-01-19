@@ -32,7 +32,7 @@ CREATE TABLE `clientes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'16800356-0','Monica Sanchez Torres','monica.sanchez@miempresa.cl','Los Alamos 157',4,'2021-12-27 21:03:45','2021-12-27 21:51:43');
+INSERT INTO `clientes` VALUES (1,'16800356-0','Monica Sanchez Torres','monica.sanchez@miempresa.cl','Los Alamos 157',4,'2021-12-27 21:03:45','2021-12-27 21:51:43'),(2,'18963789-6','Javiera Lara Pardo','jlarap@gmail.com','Bernardo O\'higgins 2356',4,'2022-01-19 01:38:55','2022-01-19 01:38:55');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `pacientes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `pacientes` (
 
 LOCK TABLES `pacientes` WRITE;
 /*!40000 ALTER TABLE `pacientes` DISABLE KEYS */;
-INSERT INTO `pacientes` VALUES (1,'Coco','',3,2,0.000000,1,1,'2022-01-10 21:14:01','2022-01-10 21:14:01'),(2,'Minino','',2,1,3.750000,2,1,'2022-01-10 21:15:13','2022-01-10 23:43:09'),(3,'Lucas','',1,1,1.560000,2,1,'2022-01-10 23:04:14','2022-01-10 23:04:14');
+INSERT INTO `pacientes` VALUES (1,'Coco','',3,2,0.000000,1,1,'2022-01-10 21:14:01','2022-01-10 21:14:01'),(2,'Minino','',2,1,3.750000,2,1,'2022-01-10 21:15:13','2022-01-10 23:43:09'),(3,'Lucas','',1,1,1.560000,2,1,'2022-01-10 23:04:14','2022-01-10 23:04:14'),(4,'Rayita','',3,1,2.800000,2,2,'2022-01-19 01:40:28','2022-01-19 01:40:28');
 /*!40000 ALTER TABLE `pacientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,6 +267,36 @@ INSERT INTO `servicio_tipos` VALUES (1,'Cirugia','2022-01-18 23:59:55','2022-01-
 UNLOCK TABLES;
 
 --
+-- Table structure for table `servicios`
+--
+
+DROP TABLE IF EXISTS `servicios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `servicios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descripcion` text NOT NULL,
+  `precio` int NOT NULL,
+  `urgencia` int NOT NULL,
+  `paciente_id` int NOT NULL,
+  `usuario_id` int NOT NULL,
+  `servicio_tipo_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicios`
+--
+
+LOCK TABLES `servicios` WRITE;
+/*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `telefonos`
 --
 
@@ -282,7 +312,7 @@ CREATE TABLE `telefonos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +321,7 @@ CREATE TABLE `telefonos` (
 
 LOCK TABLES `telefonos` WRITE;
 /*!40000 ALTER TABLE `telefonos` DISABLE KEYS */;
-INSERT INTO `telefonos` VALUES (1,956874563,1,1,'Funcionario','2021-12-13 22:11:55','2021-12-13 22:11:55'),(5,885645783,1,1,'Cliente','2021-12-27 22:30:49','2021-12-27 22:30:49');
+INSERT INTO `telefonos` VALUES (1,956874563,1,1,'Funcionario','2021-12-13 22:11:55','2021-12-13 22:11:55'),(5,885645783,1,1,'Cliente','2021-12-27 22:30:49','2021-12-27 22:30:49'),(6,968743629,1,2,'Cliente','2022-01-19 01:39:40','2022-01-19 01:39:40');
 /*!40000 ALTER TABLE `telefonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,4 +390,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-19  0:07:47
+-- Dump completed on 2022-01-19  2:25:58
