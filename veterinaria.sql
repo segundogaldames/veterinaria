@@ -253,7 +253,7 @@ CREATE TABLE `servicio_tipos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,6 +262,7 @@ CREATE TABLE `servicio_tipos` (
 
 LOCK TABLES `servicio_tipos` WRITE;
 /*!40000 ALTER TABLE `servicio_tipos` DISABLE KEYS */;
+INSERT INTO `servicio_tipos` VALUES (1,'Cirugia','2022-01-18 23:59:55','2022-01-18 23:59:55'),(2,'Vacunas','2022-01-19 00:00:46','2022-01-19 00:00:46'),(3,'Esterilizaciones','2022-01-19 00:01:10','2022-01-19 00:05:20');
 /*!40000 ALTER TABLE `servicio_tipos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +360,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-11 17:26:45
+-- Dump completed on 2022-01-19  0:07:47
