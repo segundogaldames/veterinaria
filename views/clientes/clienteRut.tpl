@@ -6,14 +6,16 @@
                     {$title}
                     <a href="{$_layoutParams.root}clientes/add" class="btn btn-outline-success btn-sm">Agregar
                         Cliente</a>
+                    <a href="{$_layoutParams.root}clientes" class="btn btn-outline-success">Lista de Clientes</a>
                 </h3>
+                <hr style="background-color: #5DB645; height:1px">
 
                 {include file="../partials/_mensajes.tpl"}
 
                 <div class="col-md-8">
                     <form class="row g-3" action="{$_layoutParams.root}clientes/clienteRut" method="post">
                         <div class="col-9">
-                            <input type="text" name="rut" class="form-control-plaintext" id="staticEmail2"
+                            <input style="border-color:#5DB645" type="text" name="rut" class="form-control-plaintext" id="staticEmail2"
                                 placeholder="RUT del cliente (sin puntos y con guión">
                         </div>
                         <div class="col-auto">

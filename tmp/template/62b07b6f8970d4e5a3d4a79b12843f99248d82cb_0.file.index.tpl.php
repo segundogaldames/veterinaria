@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-19 01:29:19
+/* Smarty version 4.0.0-rc.0, created on 2022-01-21 16:27:29
   from '/var/www/html/veterinaria/views/clientes/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61e7939f6fcca1_14774564',
+  'unifunc' => 'content_61eb0921aee255_28505013',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '62b07b6f8970d4e5a3d4a79b12843f99248d82cb' => 
     array (
       0 => '/var/www/html/veterinaria/views/clientes/index.tpl',
-      1 => 1642566556,
+      1 => 1642793243,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61e7939f6fcca1_14774564 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61eb0921aee255_28505013 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="col-md-10 ftco-animate">
@@ -32,7 +32,7 @@ function content_61e7939f6fcca1_14774564 (Smarty_Internal_Template $_smarty_tpl)
                     <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 clientes/add" class="btn btn-outline-success btn-sm">Agregar Cliente</a>
                 </h3>
-
+                <hr style="background-color: #5DB645; height:1px">
                 <?php $_smarty_tpl->_subTemplateRender("file:../partials/_mensajes.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,7 +40,7 @@ clientes/add" class="btn btn-outline-success btn-sm">Agregar Cliente</a>
                     <form class="row g-3" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 clientes/clienteRut" method="post">
                         <div class="col-9">
-                            <input type="text" name="rut" class="form-control-plaintext" id="staticEmail2"
+                        <input style="border-color:#5DB645" type="text" name="rut" class="form-control-plaintext" id="staticEmail2"
                                 placeholder="RUT del cliente (sin puntos y con guión">
                         </div>
                         <div class="col-auto">

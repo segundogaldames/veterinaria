@@ -28,7 +28,7 @@ class pacientesController extends Controller
 
         $this->_view->assign('titulo','Paciente');
         $this->_view->assign('title','Paciente');
-        $this->_view->assign('paciente', Paciente::with(['pacienteTipo','cliente'])->find($this->filtrarInt($id)));
+        $this->_view->assign('paciente', Paciente::with(['pacienteTipo','cliente','servicios'])->find($this->filtrarInt($id)));
         $this->_view->renderizar('view');
     }
 

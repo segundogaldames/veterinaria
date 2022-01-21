@@ -205,7 +205,6 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  resize: none;
 }
 
 button,
@@ -289,6 +288,10 @@ summary {
 
 template {
   display: none; }
+
+textarea{
+  resize: none;
+}
 
 [hidden] {
   display: none !important; }
