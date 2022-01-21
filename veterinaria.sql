@@ -95,7 +95,7 @@ CREATE TABLE `funcionario_rol` (
 
 LOCK TABLES `funcionario_rol` WRITE;
 /*!40000 ALTER TABLE `funcionario_rol` DISABLE KEYS */;
-INSERT INTO `funcionario_rol` VALUES (2,1,2,'2021-11-29 20:43:18','2021-11-29 21:37:37'),(4,1,1,'2021-12-13 19:40:43','2021-12-13 19:40:43'),(5,3,3,'2021-12-13 20:08:12','2021-12-13 20:08:12'),(6,4,3,'2021-12-18 15:54:30','2021-12-18 15:54:30'),(7,4,1,'2021-12-18 16:02:48','2021-12-18 16:02:48'),(8,4,2,'2021-12-18 16:05:06','2021-12-18 16:05:06');
+INSERT INTO `funcionario_rol` VALUES (2,1,2,'2021-11-29 20:43:18','2021-11-29 21:37:37'),(4,1,1,'2021-12-13 19:40:43','2021-12-13 19:40:43'),(5,3,3,'2021-12-13 20:08:12','2021-12-13 20:08:12'),(6,4,3,'2021-12-18 15:54:30','2021-12-18 15:54:30'),(8,4,2,'2021-12-18 16:05:06','2021-12-18 16:05:06');
 /*!40000 ALTER TABLE `funcionario_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ CREATE TABLE `servicio_tipos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +262,7 @@ CREATE TABLE `servicio_tipos` (
 
 LOCK TABLES `servicio_tipos` WRITE;
 /*!40000 ALTER TABLE `servicio_tipos` DISABLE KEYS */;
-INSERT INTO `servicio_tipos` VALUES (1,'Cirugia','2022-01-18 23:59:55','2022-01-18 23:59:55'),(2,'Vacunas','2022-01-19 00:00:46','2022-01-19 00:00:46'),(3,'Esterilizaciones','2022-01-19 00:01:10','2022-01-19 00:05:20');
+INSERT INTO `servicio_tipos` VALUES (1,'Cirugia','2022-01-18 23:59:55','2022-01-18 23:59:55'),(2,'Vacunas','2022-01-19 00:00:46','2022-01-19 00:00:46'),(3,'Esterilizaciones','2022-01-19 00:01:10','2022-01-19 00:05:20'),(4,'Examen de rutina','2022-01-21 18:44:10','2022-01-21 18:44:10');
 /*!40000 ALTER TABLE `servicio_tipos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,7 +284,7 @@ CREATE TABLE `servicios` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -293,7 +293,7 @@ CREATE TABLE `servicios` (
 
 LOCK TABLES `servicios` WRITE;
 /*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
-INSERT INTO `servicios` VALUES (1,'Vacunacion de rutina',10000,2,4,1,2,'2022-01-21 17:14:12','2022-01-21 17:14:12');
+INSERT INTO `servicios` VALUES (1,'Vacunacion de rutina',10000,2,4,1,2,'2022-01-21 17:14:12','2022-01-21 17:14:12'),(2,'Examen de rutina para verificar presencia de parasitos',15000,2,4,4,4,'2022-01-21 18:31:17','2022-01-21 18:44:38');
 /*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +341,7 @@ CREATE TABLE `usuarios` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -350,7 +350,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'163bb9b6ef44ff46d9718d0e842dd7502e96030b',1,1,'2021-12-06 20:21:05','2021-12-11 17:28:36'),(2,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,2,'2021-12-13 20:02:50','2021-12-13 20:02:50'),(3,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,3,'2021-12-13 20:08:28','2021-12-20 20:38:00');
+INSERT INTO `usuarios` VALUES (1,'163bb9b6ef44ff46d9718d0e842dd7502e96030b',1,1,'2021-12-06 20:21:05','2021-12-11 17:28:36'),(2,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,2,'2021-12-13 20:02:50','2021-12-13 20:02:50'),(3,'63aa9f5a93688fd219c1fb6a41a456019dd58378',1,3,'2021-12-13 20:08:28','2021-12-20 20:38:00'),(4,'e1cdf89f35036e5d46e6ebe7af940f1a30cc7e60',1,4,'2022-01-21 18:28:23','2022-01-21 18:28:23');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,7 +369,7 @@ CREATE TABLE `videos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -378,7 +378,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01'),(4,'Proyecto Veterinaria - Video 1','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/5Qr6iKdRChg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-04 00:00:17','2022-01-04 00:00:17'),(5,'Proyecto Veterinaria - Video 2','<iframe width=\"638\" height=\"360\" src=\"https://www.youtube.com/embed/odwExXnppI8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-06 18:13:23','2022-01-06 18:13:23'),(6,'Creacion de Pacientes - Parte 1','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/7Pj4T6283jU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:24:35','2022-01-11 17:24:35'),(7,'Creacion de Pacientes - Parte 2','<iframe width=\"721\" height=\"349\" src=\"https://www.youtube.com/embed/F6TbkIaNAq8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:25:56','2022-01-11 17:25:56'),(8,'CRUD de Servicios Tipos','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/4YhASsivSaE?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:39:23','2022-01-19 02:40:11'),(9,'Buscador de clientes por RUT','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/s2X5_82A4zI?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:43:58','2022-01-19 02:43:58');
+INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01'),(4,'Proyecto Veterinaria - Video 1','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/5Qr6iKdRChg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-04 00:00:17','2022-01-04 00:00:17'),(5,'Proyecto Veterinaria - Video 2','<iframe width=\"638\" height=\"360\" src=\"https://www.youtube.com/embed/odwExXnppI8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-06 18:13:23','2022-01-06 18:13:23'),(6,'Creacion de Pacientes - Parte 1','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/7Pj4T6283jU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:24:35','2022-01-11 17:24:35'),(7,'Creacion de Pacientes - Parte 2','<iframe width=\"721\" height=\"349\" src=\"https://www.youtube.com/embed/F6TbkIaNAq8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:25:56','2022-01-11 17:25:56'),(8,'CRUD de Servicios Tipos','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/4YhASsivSaE?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:39:23','2022-01-19 02:40:11'),(9,'Buscador de clientes por RUT','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/s2X5_82A4zI?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:43:58','2022-01-19 02:43:58'),(10,'Creación de Servicios a partir del id de un paciente','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/G3-uIsRSRYo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:50:31','2022-01-21 19:50:31'),(11,'Vista y edicion de un servicio','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/i44shE7vMPg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:51:18','2022-01-21 19:51:18');
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -391,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-21 18:04:02
+-- Dump completed on 2022-01-21 19:51:58
