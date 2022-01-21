@@ -9,6 +9,7 @@ class serviciosController extends Controller
     {
         parent::__construct();
         $this->verificarSession();
+        $this->verificarRolAdminVeterinario();
     }
 
     public function index()
@@ -28,12 +29,47 @@ class serviciosController extends Controller
 
         $this->_view->assign('titulo','Servicio');
         $this->_view->assign('title','Servicio');
-        $this->_view->assign('servicio', Servicio::find($this->filtrarInt($id)));
+        $this->_view->assign('servicio', Servicio::with(['paciente','usuario','servicioTipo'])->find($this->filtrarInt($id)));
         $this->_view->renderizar('view');
     }
 
     public function edit($id = null)
     {
+        $this->verificarServicio($id);
+        $this->_view->assign('titulo','Editar Servicio');
+        $this->_view->assign('title','Editar Servicio');
+        $this->_view->assign('button','Editar');
+        $this->_view->assign('ruta','servicios/view/' . $this->filtrarInt($id));
+        $this->_view->assign('servicio', Servicio::with(['paciente','usuario','servicioTipo'])->find($this->filtrarInt($id)));
+        $this->_view->assign('tipos', ServicioTipo::select('id','nombre')->orderBy('nombre')->get());
+        $this->_view->assign('enviar', CTRL);
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+
+            if (!$this->getSql('descripcion')) {
+                $this->_view->assign('_error','Ingrese la descripcion del servicio');
+                $this->_view->renderizar('edit');
+                exit;
+            }
+
+            if (!$this->getInt('tipo')) {
+                $this->_view->assign('_error','Ingrese el tipo de servicio');
+                $this->_view->renderizar('edit');
+                exit;
+            }
+
+
+            $servicio = Servicio::find($this->filtrarInt($id));
+            $servicio->descripcion = $this->getSql('descripcion');
+            $servicio->servicio_tipo_id = $this->getInt('tipo');
+            $servicio->save();
+
+            Session::set('msg_success','El servicio se ha modificado correctamente');
+
+            $this->redireccionar('servicios/view/' . $this->filtrarInt($id));
+        }
+
+        $this->_view->renderizar('edit');
 
     }
 
