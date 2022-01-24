@@ -36,6 +36,7 @@ class serviciosController extends Controller
     public function edit($id = null)
     {
         $this->verificarServicio($id);
+
         $this->_view->assign('titulo','Editar Servicio');
         $this->_view->assign('title','Editar Servicio');
         $this->_view->assign('button','Editar');
