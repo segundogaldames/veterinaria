@@ -130,6 +130,32 @@ INSERT INTO `funcionarios` VALUES (1,'16800356-9','Gabriela Nuñez Espinoza','ga
 UNLOCK TABLES;
 
 --
+-- Table structure for table `horarios`
+--
+
+DROP TABLE IF EXISTS `horarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `horarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rango_hora` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `horarios`
+--
+
+LOCK TABLES `horarios` WRITE;
+/*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
+INSERT INTO `horarios` VALUES (1,'09:00 a 10:00','2022-01-25 17:16:55','2022-01-25 17:22:21'),(2,'10:00 a 11:00','2022-01-25 17:17:32','2022-01-25 17:17:32'),(3,'11:00 a 12:00','2022-01-25 17:17:49','2022-01-25 17:17:49');
+/*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `paciente_tipos`
 --
 
@@ -391,4 +417,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-21 19:51:58
+-- Dump completed on 2022-01-25 17:24:28

@@ -24,6 +24,12 @@
                              class="list-group-item list-group-item-action">Pacientes</a>
                          <a href="{$_layoutParams.root}pacientetipos/" class="list-group-item list-group-item-action">Paciente Tipos</a>
                     </div>
+                    <h3 class="text-success">Reservas</h3>
+                    <div class="list-group mb-2">
+                        <a href="{$_layoutParams.root}horarios/"
+                            class="list-group-item list-group-item-action">Horarios</a>
+                        <a href="{$_layoutParams.root}reservas/" class="list-group-item list-group-item-action">Reservas</a>
+                    </div>
                     <h3 class="text-success">Servicios</h3>
                     <div class="list-group mb-2">
                         <a href="{$_layoutParams.root}servicios/"
