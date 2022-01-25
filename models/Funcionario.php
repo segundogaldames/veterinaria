@@ -32,4 +32,9 @@ class Funcionario extends Model
     {
         return $this->morphMany(Telefono::class, 'telefonoable');
     }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
 }

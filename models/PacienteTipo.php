@@ -12,4 +12,9 @@ class PacienteTipo extends Model
     {
         return $this->hasMany(Paciente::class);
     }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
 }

@@ -22,4 +22,9 @@ class Usuario extends Model
     {
         return $this->hasMany(Servicio::class);
     }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
 }
