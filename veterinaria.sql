@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
 --
 -- Host: localhost    Database: veterinaria
 -- ------------------------------------------------------
--- Server version	8.0.27-0ubuntu0.20.04.1
+-- Server version	8.0.28-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -261,7 +261,7 @@ CREATE TABLE `reservas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,6 +270,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
+INSERT INTO `reservas` VALUES (1,'2022-01-27','Rambo','Margarita Pino',1,1,4,1,1,4,'2022-01-27 01:23:26','2022-01-27 01:23:26'),(2,'2022-01-27','Pipe','Luis Montes',1,2,3,2,1,3,'2022-01-27 01:27:37','2022-01-27 01:27:37');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +429,7 @@ CREATE TABLE `videos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -437,7 +438,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01'),(4,'Proyecto Veterinaria - Video 1','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/5Qr6iKdRChg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-04 00:00:17','2022-01-04 00:00:17'),(5,'Proyecto Veterinaria - Video 2','<iframe width=\"638\" height=\"360\" src=\"https://www.youtube.com/embed/odwExXnppI8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-06 18:13:23','2022-01-06 18:13:23'),(6,'Creacion de Pacientes - Parte 1','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/7Pj4T6283jU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:24:35','2022-01-11 17:24:35'),(7,'Creacion de Pacientes - Parte 2','<iframe width=\"721\" height=\"349\" src=\"https://www.youtube.com/embed/F6TbkIaNAq8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:25:56','2022-01-11 17:25:56'),(8,'CRUD de Servicios Tipos','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/4YhASsivSaE?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:39:23','2022-01-19 02:40:11'),(9,'Buscador de clientes por RUT','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/s2X5_82A4zI?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:43:58','2022-01-19 02:43:58'),(10,'Creación de Servicios a partir del id de un paciente','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/G3-uIsRSRYo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:50:31','2022-01-21 19:50:31'),(11,'Vista y edicion de un servicio','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/i44shE7vMPg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:51:18','2022-01-21 19:51:18');
+INSERT INTO `videos` VALUES (2,'Video de prueba 2','<iframe width=\"729\" height=\"410\" src=\"https://www.youtube.com/embed/3QUknuUj3xs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:06:50','2022-01-03 19:06:50'),(3,'Valores del Manifiesto Agil','<iframe width=\"547\" height=\"410\" src=\"https://www.youtube.com/embed/D3ME3l49rYE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-03 19:30:01','2022-01-03 19:30:01'),(4,'Proyecto Veterinaria - Video 1','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/5Qr6iKdRChg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-04 00:00:17','2022-01-04 00:00:17'),(5,'Proyecto Veterinaria - Video 2','<iframe width=\"638\" height=\"360\" src=\"https://www.youtube.com/embed/odwExXnppI8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-06 18:13:23','2022-01-06 18:13:23'),(6,'Creacion de Pacientes - Parte 1','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/7Pj4T6283jU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:24:35','2022-01-11 17:24:35'),(7,'Creacion de Pacientes - Parte 2','<iframe width=\"721\" height=\"349\" src=\"https://www.youtube.com/embed/F6TbkIaNAq8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-11 17:25:56','2022-01-11 17:25:56'),(8,'CRUD de Servicios Tipos','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/4YhASsivSaE?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:39:23','2022-01-19 02:40:11'),(9,'Buscador de clientes por RUT','<iframe width=\"785\" height=\"380\" src=\"https://www.youtube.com/embed/s2X5_82A4zI?list=PLe08SOA6_zN0QeJhXs5B5G9_TbyM7HoqD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-19 02:43:58','2022-01-19 02:43:58'),(10,'Creación de Servicios a partir del id de un paciente','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/G3-uIsRSRYo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:50:31','2022-01-21 19:50:31'),(11,'Vista y edicion de un servicio','<iframe width=\"849\" height=\"410\" src=\"https://www.youtube.com/embed/i44shE7vMPg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-21 19:51:18','2022-01-21 19:51:18'),(12,'Creacion de vista index para los servicios y modelo de reservas para servicios','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/DkuMFXlSeVI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-25 20:28:41','2022-01-25 20:28:41'),(13,'Creacion del mantenedor de horarios para las reservas','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/6Blq3xQUM6k\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-25 20:29:51','2022-01-25 20:29:51'),(14,'Creacion de reservas, primera parte','<iframe width=\"723\" height=\"349\" src=\"https://www.youtube.com/embed/6cwJ6D4ttzc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>',1,'2022-01-25 20:30:51','2022-01-25 20:30:51');
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -450,4 +451,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-25 20:06:51
+-- Dump completed on 2022-02-05 14:57:30

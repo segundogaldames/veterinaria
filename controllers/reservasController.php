@@ -16,7 +16,14 @@ class reservasController extends Controller
 
     public function index()
     {
-        # code...
+        $this->verificarMensajes();
+
+        $this->_view->assign('titulo','Reservas');
+        $this->_view->assign('title','Reservas');
+        $this->_view->assign('title_horario','Horarios');
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->orderBy('id','DESC')->take(10)->get());
+        $this->_view->assign('horarios', Horario::all());
+        $this->_view->renderizar('index');
     }
 
     public function view($id = null)
@@ -46,6 +53,13 @@ class reservasController extends Controller
             $this->_view->assign('reserva', $_POST);
 
             $hoy = getdate();
+            $day = ($hoy['mday'] < 10) ? 0 .$hoy['mday'] : $hoy['mday'];
+            $month = ($hoy['mon'] < 10) ? 0 .$hoy['mon'] : $hoy['mon'];
+            $year = $hoy['year'];
+
+            $hoy = $year . '-' . $month . '-' . $day;
+
+            //print_r($hoy);exit;
 
             if (!$this->getSql('fecha') || $this->getSql('fecha') < $hoy) {
                 $this->_view->assign('_error','Seleccione una fecha igual o posterior a la actual');
@@ -55,6 +69,12 @@ class reservasController extends Controller
 
             if (!$this->getSql('nombre_paciente')) {
                 $this->_view->assign('_error','Ingrese el nombre del paciente');
+                $this->_view->renderizar('add');
+                exit;
+            }
+
+            if (!$this->getInt('paciente_tipo')) {
+                $this->_view->assign('_error','Seleccione el tipo de paciente');
                 $this->_view->renderizar('add');
                 exit;
             }
@@ -71,11 +91,6 @@ class reservasController extends Controller
                 exit;
             }
 
-            if (!$this->getInt('paciente_tipo')) {
-                $this->_view->assign('_error','Seleccione el tipo de paciente');
-                $this->_view->renderizar('add');
-                exit;
-            }
 
             if (!$this->getInt('funcionario')) {
                 $this->_view->assign('_error','Seleccione el funcionario');
@@ -83,10 +98,10 @@ class reservasController extends Controller
                 exit;
             }
 
-            $reserva = Reserva::select('id')->where('fecha', $this->getSql('fecha'))->where('horario_id', $this->filtrarInt($horario))->first();
+            $reserva = Reserva::select('id')->whereDate('fecha', $this->getSql('fecha'))->where('horario_id', $this->filtrarInt($horario))->first();
 
             if ($reserva) {
-                $this->_view->assign('_error','La reserva ingresada ya existe... cambie la fecha y la hora para continuar');
+                $this->_view->assign('_error','La reserva ingresada ya existe... cambie la fecha y/o la hora para continuar');
                 $this->_view->renderizar('add');
                 exit;
             }
@@ -95,6 +110,7 @@ class reservasController extends Controller
             * 1 => pendiente (esta reservada pero no confirmada)
             * 2 => confirmada
             * 3 => efectuada
+            * 4 => anulada
             */
 
             $reserva = new Reserva;
@@ -140,6 +156,7 @@ class reservasController extends Controller
         $horario = Horario::select('id')->find($this->filtrarInt($id));
 
         if (!$horario) {
+            Session::set('msg_error','El horario no existe');
             $this->redireccionar('reservas');
         }
     }
