@@ -1,27 +1,27 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-19 16:31:13
-  from '/var/www/html/veterinaria/views/reservas/index.tpl' */
+/* Smarty version 4.0.0-rc.0, created on 2022-03-22 00:26:29
+  from '/var/www/html/veterinaria/views/reservas/horariosReserva.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_62362f81a34bd0_17308234',
+  'unifunc' => 'content_623941e59f06b9_85733783',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3402861cc084ecda1e88d0e2d12493c5ca5ab2dc' => 
+    '2a7dd565fd68b038376c4c5f07c2fdc3ee4fdec7' => 
     array (
-      0 => '/var/www/html/veterinaria/views/reservas/index.tpl',
-      1 => 1647718269,
+      0 => '/var/www/html/veterinaria/views/reservas/horariosReserva.tpl',
+      1 => 1647919586,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:../partials/_mensajes.tpl' => 2,
+    'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_62362f81a34bd0_17308234 (Smarty_Internal_Template $_smarty_tpl) {
+function content_623941e59f06b9_85733783 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -87,19 +87,51 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                     </h3>
 
-                    <?php $_smarty_tpl->_subTemplateRender("file:../partials/_mensajes.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
-?>
-
                     <form class="form-inline" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 reservas/horariosReserva" method="post">
-                         <div class="form-group mx-sm-3 mb-2">
-                             <input type="date" name="fecha" class="form-control" id="inputPassword2"
-                                 placeholder="Fecha">
-                         </div>
-                         <input type="hidden" name="enviar" value="<?php echo $_smarty_tpl->tpl_vars['enviar']->value;?>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="date" name="fecha" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['fecha']->value['fecha'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
+" class="form-control"
+                                id="inputPassword2" placeholder="Fecha">
+                        </div>
+                        <input type="hidden" name="enviar" value="<?php echo $_smarty_tpl->tpl_vars['enviar']->value;?>
 ">
-                         <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                     </form>
+                    <?php if ((isset($_smarty_tpl->tpl_vars['horarios']->value)) && count($_smarty_tpl->tpl_vars['horarios']->value)) {?>
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Horario</th>
+                            </tr>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['horarios']->value, 'horario');
+$_smarty_tpl->tpl_vars['horario']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['horario']->value) {
+$_smarty_tpl->tpl_vars['horario']->do_else = false;
+?>
+                                <tr>
+                                    <td class="text-center">
+                                        <?php if ($_smarty_tpl->tpl_vars['horario']->value['disponible'] == "Si" || $_smarty_tpl->tpl_vars['horario']->value['disponible'] == '') {?>
+                                            <a
+                                                href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+reservas/add/<?php echo $_smarty_tpl->tpl_vars['horario']->value['id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['fecha']->value['fecha'];?>
+"><?php echo $_smarty_tpl->tpl_vars['horario']->value['rango_hora'];?>
+</a>
+                                        <?php } else { ?>
+                                            <?php echo $_smarty_tpl->tpl_vars['horario']->value['rango_hora'];?>
+
+                                        <?php }?>
+                                    </td>
+                                </tr>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        </table>
+                    <?php } else { ?>
+                        <p class="text-info">No hay horarios disponibles</p>
+                    <?php }?>
+
                 </div>
             </div>
 

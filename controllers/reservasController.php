@@ -23,6 +23,7 @@ class reservasController extends Controller
         $this->_view->assign('title_horario','Horarios');
         $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->orderBy('id','DESC')->take(10)->get());
         $this->_view->assign('horarios', Horario::all());
+        $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }
 
@@ -36,7 +37,64 @@ class reservasController extends Controller
         # code...
     }
 
-    public function add($horario = null)
+    public function horariosReserva()
+    {
+        $this->verificarMensajes();
+
+        $this->_view->assign('titulo','Reservas');
+        $this->_view->assign('title','Reservas');
+        $this->_view->assign('title_horario','Horarios');
+        #$this->_view->assign('horarios', Horario::select('id','rango_hora')->get());
+        $this->_view->assign('enviar', CTRL);
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+            $this->_view->assign('fecha', $_POST);
+
+            $hoy = getdate();
+            $day = ($hoy['mday'] < 10) ? 0 .$hoy['mday'] : $hoy['mday'];
+            $month=($hoy['mon'] < 10) ? 0 .$hoy['mon'] : $hoy['mon'];
+            $year=$hoy['year']; $hoy=$year . '-' . $month . '-' . $day;
+
+            if (!$this->getSql('fecha') || $this->getSql('fecha') < $hoy) {
+                $this->_view->assign('_error', 'Ingrese una fecha válida');
+                $this->_view->renderizar('horariosReserva');
+                exit;
+            }
+
+            $reservas = Reserva::where('fecha', $this->getSql('fecha'))->get();
+            $horarios = Horario::all();
+
+            //print_r($reservas);exit;
+
+            for($i=0; $i < count($horarios); $i++){
+                #$j = $i+1;
+                if (count($reservas) > 0) {
+                    # code...
+                    for($j = $i; $j < count($reservas);$j = $i) {
+                        if ($reservas[$j]['horario_id'] != $horarios[$j]['id']) {
+                            $horarios[$j]['disponible'] = 'Si';
+                        }else{
+                            $horarios[$j]['disponible'] = 'No';
+                        }
+                        continue 2;
+                    }
+                }else{
+
+                    $horarios[$i]['disponible'] = 'Si';
+                }
+
+            }
+
+            $this->_view->assign('reservas', Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->whereDate('fecha', $this->getSql('fecha'))->get());
+            $this->_view->assign('horarios', $horarios);
+            #$this->_view->assign('fecha', $this->getSql('fecha'));
+
+        }
+
+        $this->_view->renderizar('horariosReserva');
+    }
+
+    public function add($horario = null, $fecha = null)
     {
         $this->verificarHorario($horario);
 
@@ -61,7 +119,7 @@ class reservasController extends Controller
 
             //print_r($hoy);exit;
 
-            if (!$this->getSql('fecha') || $this->getSql('fecha') < $hoy) {
+            if ($fecha < $hoy) {
                 $this->_view->assign('_error','Seleccione una fecha igual o posterior a la actual');
                 $this->_view->renderizar('add');
                 exit;
@@ -98,7 +156,7 @@ class reservasController extends Controller
                 exit;
             }
 
-            $reserva = Reserva::select('id')->whereDate('fecha', $this->getSql('fecha'))->where('horario_id', $this->filtrarInt($horario))->first();
+            $reserva = Reserva::select('id')->whereDate('fecha', $fecha)->where('horario_id', $this->filtrarInt($horario))->first();
 
             if ($reserva) {
                 $this->_view->assign('_error','La reserva ingresada ya existe... cambie la fecha y/o la hora para continuar');
@@ -114,7 +172,7 @@ class reservasController extends Controller
             */
 
             $reserva = new Reserva;
-            $reserva->fecha = $this->getSql('fecha');
+            $reserva->fecha = $fecha;
             $reserva->nombre_paciente = $this->getSql('nombre_paciente');
             $reserva->nombre_cliente = $this->getSql('nombre_cliente');
             $reserva->status = 1;

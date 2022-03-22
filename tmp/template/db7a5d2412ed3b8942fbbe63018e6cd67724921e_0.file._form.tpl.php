@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-27 01:08:40
+/* Smarty version 4.0.0-rc.0, created on 2022-03-22 00:27:32
   from '/var/www/html/veterinaria/views/reservas/_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61f21ac84574e9_14994805',
+  'unifunc' => 'content_623942248089b3_21622857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db7a5d2412ed3b8942fbbe63018e6cd67724921e' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/_form.tpl',
-      1 => 1643256476,
+      1 => 1647919643,
       2 => 'file',
     ),
   ),
@@ -20,15 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61f21ac84574e9_14994805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_623942248089b3_21622857 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form action="" method="post">
-    <div class="mb-3">
-        <label for="fecha" class="label text-success" style="font-weight: bold; font-size: 14px;">Fecha Reserva <span
-                class="text-danger">*</span></label>
-        <input type="date" name="fecha" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['reserva']->value['fecha'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
-" class="form-control" id="" aria-describedby=""
-            placeholder="Fecha de la reserva">
-    </div>
     <div class="mb-3">
         <label for="nombre_paciente" class="label text-success" style="font-weight: bold; font-size: 14px;">Nombre del Paciente <span
                 class="text-danger">*</span></label>
