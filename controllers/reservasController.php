@@ -21,14 +21,20 @@ class reservasController extends Controller
         $this->_view->assign('titulo','Reservas');
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
-        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->take(10)->get());
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->take(10)->get());
         $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }
 
     public function view($id = null)
     {
-        # code...
+        $this->verificarReserva($id);
+        $this->verificarMensajes();
+
+        $this->_view->assign('titulo','Reserva');
+        $this->_view->assign('title','Reserva');
+        $this->_view->assign('reserva',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->find($this->filtrarInt($id)));
+        $this->_view->renderizar('view');
     }
 
     public function edit($id = null)
@@ -44,7 +50,8 @@ class reservasController extends Controller
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
         $this->_view->assign('enviar', CTRL);
-        $this->_view->assign('reservas', Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->whereDate('fecha', $this->getSql('fecha'))->orderBy('horario_id', 'DESC')->get());
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->whereDate('fecha',
+        $this->getSql('fecha'))->orderBy('horario_id', 'DESC')->get());
 
         if ($this->getAlphaNum('enviar') == CTRL) {
             $this->_view->assign('fecha', $_POST);
@@ -172,7 +179,7 @@ class reservasController extends Controller
             $reserva->fecha = $fecha;
             $reserva->nombre_paciente = $this->getSql('nombre_paciente');
             $reserva->nombre_cliente = $this->getSql('nombre_cliente');
-            $reserva->status = 1;
+            $reserva->reserva_status_id = 1;
             $reserva->horario_id = $this->filtrarInt($horario);
             $reserva->servicio_tipo_id = $this->getInt('servicio_tipo');
             $reserva->paciente_tipo_id = $this->getInt('paciente_tipo');
