@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-19 16:31:13
+/* Smarty version 4.0.0-rc.0, created on 2022-03-22 11:58:33
   from '/var/www/html/veterinaria/views/reservas/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_62362f81a34bd0_17308234',
+  'unifunc' => 'content_6239e419be4610_14196819',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3402861cc084ecda1e88d0e2d12493c5ca5ab2dc' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/index.tpl',
-      1 => 1647718269,
+      1 => 1647961109,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 2,
   ),
 ),false)) {
-function content_62362f81a34bd0_17308234 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6239e419be4610_14196819 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">

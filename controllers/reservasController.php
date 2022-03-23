@@ -21,8 +21,7 @@ class reservasController extends Controller
         $this->_view->assign('titulo','Reservas');
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
-        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->orderBy('id','DESC')->take(10)->get());
-        $this->_view->assign('horarios', Horario::all());
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->take(10)->get());
         $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }
@@ -44,8 +43,8 @@ class reservasController extends Controller
         $this->_view->assign('titulo','Reservas');
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
-        #$this->_view->assign('horarios', Horario::select('id','rango_hora')->get());
         $this->_view->assign('enviar', CTRL);
+        $this->_view->assign('reservas', Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->whereDate('fecha', $this->getSql('fecha'))->orderBy('horario_id', 'DESC')->get());
 
         if ($this->getAlphaNum('enviar') == CTRL) {
             $this->_view->assign('fecha', $_POST);
@@ -53,7 +52,8 @@ class reservasController extends Controller
             $hoy = getdate();
             $day = ($hoy['mday'] < 10) ? 0 .$hoy['mday'] : $hoy['mday'];
             $month=($hoy['mon'] < 10) ? 0 .$hoy['mon'] : $hoy['mon'];
-            $year=$hoy['year']; $hoy=$year . '-' . $month . '-' . $day;
+            $year = $hoy['year'];
+            $hoy = $year . '-' . $month . '-' . $day;
 
             if (!$this->getSql('fecha') || $this->getSql('fecha') < $hoy) {
                 $this->_view->assign('_error', 'Ingrese una fecha válida');
@@ -65,29 +65,26 @@ class reservasController extends Controller
             $horarios = Horario::all();
 
             //print_r($reservas);exit;
-
-            for($i=0; $i < count($horarios); $i++){
-                #$j = $i+1;
-                if (count($reservas) > 0) {
-                    # code...
-                    for($j = $i; $j < count($reservas);$j = $i) {
-                        if ($reservas[$j]['horario_id'] != $horarios[$j]['id']) {
-                            $horarios[$j]['disponible'] = 'Si';
-                        }else{
-                            $horarios[$j]['disponible'] = 'No';
-                        }
-                        continue 2;
-                    }
-                }else{
-
+            if (count($reservas) > 0) {
+                # code...
+                for($i=0; $i < count($horarios); $i++){
                     $horarios[$i]['disponible'] = 'Si';
-                }
 
+                    for($j = 0; $j < count($reservas);$j++) {
+                        if ($reservas[$j]['horario_id'] == $horarios[$i]['id']) {
+                            $horarios[$i]['disponible'] = 'No';
+                            continue;
+                        }
+                    }
+                }
+            }else{
+                foreach ($horarios as $horario) {
+                    $horario->disponible = 'Si';
+                }
             }
 
-            $this->_view->assign('reservas', Reserva::with(['servicioTipo','pacienteTipo','horario','funcionario'])->whereDate('fecha', $this->getSql('fecha'))->get());
+
             $this->_view->assign('horarios', $horarios);
-            #$this->_view->assign('fecha', $this->getSql('fecha'));
 
         }
 

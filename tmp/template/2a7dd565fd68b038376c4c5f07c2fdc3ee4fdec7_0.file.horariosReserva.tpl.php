@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-22 00:26:29
+/* Smarty version 4.0.0-rc.0, created on 2022-03-22 12:28:16
   from '/var/www/html/veterinaria/views/reservas/horariosReserva.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_623941e59f06b9_85733783',
+  'unifunc' => 'content_6239eb10ede476_18987094',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2a7dd565fd68b038376c4c5f07c2fdc3ee4fdec7' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/horariosReserva.tpl',
-      1 => 1647919586,
+      1 => 1647962846,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_623941e59f06b9_85733783 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6239eb10ede476_18987094 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -98,6 +98,7 @@ reservas/horariosReserva" method="post">
 ">
                         <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                     </form>
+
                     <?php if ((isset($_smarty_tpl->tpl_vars['horarios']->value)) && count($_smarty_tpl->tpl_vars['horarios']->value)) {?>
                         <table class="table table-hover">
                             <tr>
@@ -117,7 +118,8 @@ $_smarty_tpl->tpl_vars['horario']->do_else = false;
 reservas/add/<?php echo $_smarty_tpl->tpl_vars['horario']->value['id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['fecha']->value['fecha'];?>
 "><?php echo $_smarty_tpl->tpl_vars['horario']->value['rango_hora'];?>
-</a>
+
+                                            </a>
                                         <?php } else { ?>
                                             <?php echo $_smarty_tpl->tpl_vars['horario']->value['rango_hora'];?>
 

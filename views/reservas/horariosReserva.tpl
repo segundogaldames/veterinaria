@@ -54,6 +54,7 @@
                         <input type="hidden" name="enviar" value="{$enviar}">
                         <button type="submit" class="btn btn-primary mb-2">Buscar</button>
                     </form>
+
                     {if isset($horarios) && count($horarios)}
                         <table class="table table-hover">
                             <tr>
@@ -64,7 +65,8 @@
                                     <td class="text-center">
                                         {if $horario.disponible == "Si" || $horario.disponible == ""}
                                             <a
-                                                href="{$_layoutParams.root}reservas/add/{$horario.id}/{$fecha.fecha}">{$horario.rango_hora}</a>
+                                                href="{$_layoutParams.root}reservas/add/{$horario.id}/{$fecha.fecha}">{$horario.rango_hora}
+                                            </a>
                                         {else}
                                             {$horario.rango_hora}
                                         {/if}
