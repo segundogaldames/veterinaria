@@ -5,6 +5,7 @@ use models\ServicioTipo;
 use models\PacienteTipo;
 use models\Funcionario;
 use models\FuncionarioRol;
+use models\ReservaStatus;
 
 class reservasController extends Controller
 {
@@ -39,7 +40,35 @@ class reservasController extends Controller
 
     public function edit($id = null)
     {
-        # code...
+        $this->verificarReserva($id);
+
+        $this->_view->assign('titulo','Editar Reserva');
+        $this->_view->assign('title','Editar Reserva');
+        $this->_view->assign('button','Editar');
+        $this->_view->assign('ruta','reservas/view/' . $this->filtrarInt($id));
+        $this->_view->assign('reserva', Reserva::with(['horario','reservaStatus'])->find($this->filtrarInt($id)));
+        $this->_view->assign('statuses', ReservaStatus::select('id','nombre')->get());
+        $this->_view->assign('enviar', CTRL);
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+
+            //print_r($_POST);exit;
+
+            if (!$this->getInt('status')) {
+                $this->_view->assign('_error', 'Seleccione un status');
+                $this->_view->renderizar('edit');
+                exit;
+            }
+
+            $reserva = Reserva::find($this->filtrarInt($id));
+            $reserva->reserva_status_id = $this->getInt('status');
+            $reserva->save();
+
+            Session::set('success','El status de la reserva se ha modificado correctamente');
+            $this->redireccionar('reservas/view/' . $this->filtrarInt($id));
+        }
+
+        $this->_view->renderizar('edit');
     }
 
     public function horariosReserva()
@@ -68,7 +97,7 @@ class reservasController extends Controller
                 exit;
             }
 
-            $reservas = Reserva::where('fecha', $this->getSql('fecha'))->get();
+            $reservas = Reserva::where('fecha', $this->getSql('fecha'))->where('reserva_status_id','<>', 4)->get();
             $horarios = Horario::all();
 
             //print_r($reservas);exit;

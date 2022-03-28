@@ -3,6 +3,7 @@ use models\Funcionario;
 use models\Comuna;
 use models\FuncionarioRol;
 use models\Telefono;
+use models\Reserva;
 
 class funcionariosController extends Controller
 {
@@ -10,7 +11,7 @@ class funcionariosController extends Controller
     {
         parent::__construct();
         $this->verificarSession();
-        $this->verificarRolAdminSuper();
+        #$this->verificarRolAdminSuper();
     }
 
     public function index()
@@ -35,6 +36,40 @@ class funcionariosController extends Controller
         $this->_view->assign('type', 'Funcionario');
         $this->_view->assign('telefonos', Telefono::where('telefonoable_id',$this->filtrarInt($id))->where('telefonoable_type','Funcionario')->get());
         $this->_view->renderizar('view');
+    }
+
+    public function miPerfil()
+    {
+        $this->verificarMensajes();
+
+        $hoy = getdate();
+        $day = ($hoy['mday'] < 10) ? 0 .$hoy['mday'] : $hoy['mday'];
+        $month = ($hoy['mon'] < 10) ? 0 .$hoy['mon'] : $hoy['mon'];
+        $year = $hoy['year'];
+        $hoy = $year . '-' . $month . '-' . $day;
+
+        $this->_view->assign('titulo', 'Mi Perfil');
+        $this->_view->assign('title', 'Mi Perfil');
+        $this->_view->assign('funcionario', Funcionario::with(['usuario','roles'])->find(Session::get('funcionario_id')));
+        $this->_view->assign('roles', FuncionarioRol::with('rol')->where('funcionario_id', Session::get('funcionario_id'))->get());
+        $this->_view->assign('telefonos', Telefono::where('telefonoable_id',Session::get('funcionario_id'))->where('telefonoable_type','Funcionario')->get());
+
+        // reserva segun rol
+        // print_r('<pre>');
+        // print_r(Session::get('usuario_roles'));
+        // print_r('</pre>');
+        // exit;
+        foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
+            //echo $funcionarioRol->rol->nombre;
+            if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
+                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->get();
+            }elseif ($funcionarioRol->rol->nombre == 'Veterinario(a)') {
+                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->where('funcionario_id', Session::get('funcionario_id'))->get();
+            }
+        }
+
+        $this->_view->assign('reservas', $reservas);
+        $this->_view->renderizar('miPerfil');
     }
 
     public function edit($id = null)

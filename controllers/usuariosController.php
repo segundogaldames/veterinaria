@@ -64,6 +64,7 @@ class usuariosController extends Controller
                 Session::set('usuario_id', $usuario->id);
                 Session::set('usuario_nombre', $usuario->funcionario->nombre);
                 Session::set('usuario_roles', $roles);
+                Session::set('funcionario_id', $usuario->funcionario->id);
                 Session::set('tiempo', time());
 
                 // $acceso = new Acceso;
