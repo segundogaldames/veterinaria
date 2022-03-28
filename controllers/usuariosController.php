@@ -75,13 +75,12 @@ class usuariosController extends Controller
                 // $acceso = Acceso::select('id')->where('usuario_id', Session::get('usuario_id') )->first();
                 // Session::set('ingreso', $acceso->id);
 
+                $this->redireccionar('funcionarios/miPerfil');
             }else{
                 $this->_view->assign('_error','El email o el password no están registrados');
                 $this->_view->renderizar('login');
                 exit;
             }
-
-            $this->redireccionar();
 
         }
 

@@ -16,6 +16,7 @@ class funcionariosController extends Controller
 
     public function index()
     {
+        $this->verificarRolAdmin();
         $this->verificarMensajes();
 
         $this->_view->assign('titulo','Funcionarios');
@@ -26,6 +27,7 @@ class funcionariosController extends Controller
 
     public function view($id = null)
     {
+        $this->verificarRolAdmin();
         $this->verificarFuncionario($id);
         $this->verificarMensajes();
 
@@ -53,6 +55,7 @@ class funcionariosController extends Controller
         $this->_view->assign('funcionario', Funcionario::with(['usuario','roles'])->find(Session::get('funcionario_id')));
         $this->_view->assign('roles', FuncionarioRol::with('rol')->where('funcionario_id', Session::get('funcionario_id'))->get());
         $this->_view->assign('telefonos', Telefono::where('telefonoable_id',Session::get('funcionario_id'))->where('telefonoable_type','Funcionario')->get());
+        $this->_view->assign('enviar', CTRL);
 
         // reserva segun rol
         // print_r('<pre>');
@@ -62,9 +65,9 @@ class funcionariosController extends Controller
         foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
             //echo $funcionarioRol->rol->nombre;
             if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
-                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->get();
+                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->get();
             }elseif ($funcionarioRol->rol->nombre == 'Veterinario(a)') {
-                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->where('funcionario_id', Session::get('funcionario_id'))->get();
+                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->where('funcionario_id', Session::get('funcionario_id'))->get();
             }
         }
 
@@ -74,6 +77,7 @@ class funcionariosController extends Controller
 
     public function edit($id = null)
     {
+        $this->verificarRolAdmin();
         $this->verificarFuncionario($id);
 
         $this->_view->assign('titulo','Editar Funcionario');
@@ -121,6 +125,8 @@ class funcionariosController extends Controller
 
     public function add()
     {
+        $this->verificarRolAdmin();
+
         $this->_view->assign('titulo','Nuevo Funcionario');
         $this->_view->assign('title','Nuevo Funcionario');
         $this->_view->assign('comunas', Comuna::select('id','nombre')->orderBy('nombre')->get());

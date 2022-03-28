@@ -19,6 +19,7 @@
                                 <th>Tipo de Paciente</th>
                                 <th>Veterinario</th>
                                 <th>Status</th>
+                                <th>Reservado Por</th>
                             </tr>
                             {foreach from=$reservas item=reserva}
                                 <tr>
@@ -32,6 +33,7 @@
                                     <td>{$reserva.pacienteTipo.nombre}</td>
                                     <td>{$reserva.funcionario.nombre}</td>
                                     <td>{$reserva.reservaStatus.nombre}</td>
+                                    <td>{$reserva.usuario.funcionario.nombre}</td>
                                 </tr>
                             {/foreach}
                         </table>

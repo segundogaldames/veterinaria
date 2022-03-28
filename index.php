@@ -22,6 +22,7 @@ try{
 	require_once APP_PATH . 'Database.php';
 	require_once APP_PATH . 'Session.php';
 	require_once APP_PATH . 'Hash.php';
+	require_once APP_PATH . 'Helper.php';
 
 	//echo uniqid();
 	//exit;

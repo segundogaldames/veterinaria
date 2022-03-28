@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-23 10:12:29
+/* Smarty version 4.0.0-rc.0, created on 2022-03-28 18:23:18
   from '/var/www/html/veterinaria/views/reservas/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_623b1cbd653c21_73432425',
+  'unifunc' => 'content_6242274690e0b9_92706367',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '410c2c9bae1fecc5310048f53777b836b9b4c53e' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/view.tpl',
-      1 => 1648041143,
+      1 => 1648502593,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_623b1cbd653c21_73432425 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6242274690e0b9_92706367 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -94,10 +94,12 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                     </tr>
                 </table>
                 <p>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                    <?php if (Helper::getRolAdminSuper()) {?>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 reservas/edit/<?php echo $_smarty_tpl->tpl_vars['reserva']->value['id'];?>
 "
-                        class="btn btn-outline-primary btn-sm">Editar</a>
+                            class="btn btn-outline-primary btn-sm">Cambiar Status</a>
+                    <?php }?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 reservas/" class="btn btn-outline-primary btn-sm">Volver</a>
                 </p>

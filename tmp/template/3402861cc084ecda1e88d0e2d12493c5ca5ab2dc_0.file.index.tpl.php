@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-23 10:05:16
+/* Smarty version 4.0.0-rc.0, created on 2022-03-28 18:33:19
   from '/var/www/html/veterinaria/views/reservas/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_623b1b0cc247e2_88977793',
+  'unifunc' => 'content_6242299f6c8c42_89852204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3402861cc084ecda1e88d0e2d12493c5ca5ab2dc' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/index.tpl',
-      1 => 1648040674,
+      1 => 1648503187,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 2,
   ),
 ),false)) {
-function content_623b1b0cc247e2_88977793 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6242299f6c8c42_89852204 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -46,6 +46,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                                 <th>Tipo de Paciente</th>
                                 <th>Veterinario</th>
                                 <th>Status</th>
+                                <th>Reservado Por</th>
                             </tr>
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['reservas']->value, 'reserva');
@@ -71,6 +72,8 @@ reservas/view/<?php echo $_smarty_tpl->tpl_vars['reserva']->value['id'];?>
                                     <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['funcionario']['nombre'];?>
 </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['reservaStatus']['nombre'];?>
+</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['usuario']['funcionario']['nombre'];?>
 </td>
                                 </tr>
                             <?php

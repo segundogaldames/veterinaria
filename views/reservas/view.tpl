@@ -55,8 +55,10 @@
                     </tr>
                 </table>
                 <p>
-                    <a href="{$_layoutParams.root}reservas/edit/{$reserva.id}"
-                        class="btn btn-outline-primary btn-sm">Editar</a>
+                    {if Helper::getRolAdminSuper()}
+                        <a href="{$_layoutParams.root}reservas/edit/{$reserva.id}"
+                            class="btn btn-outline-primary btn-sm">Cambiar Status</a>
+                    {/if}
                     <a href="{$_layoutParams.root}reservas/" class="btn btn-outline-primary btn-sm">Volver</a>
                 </p>
             </div>

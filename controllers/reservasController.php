@@ -17,12 +17,13 @@ class reservasController extends Controller
 
     public function index()
     {
+        $this->verificarRolAdminSuper();
         $this->verificarMensajes();
 
         $this->_view->assign('titulo','Reservas');
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
-        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->take(10)->get());
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->take(10)->get());
         $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }
@@ -34,12 +35,13 @@ class reservasController extends Controller
 
         $this->_view->assign('titulo','Reserva');
         $this->_view->assign('title','Reserva');
-        $this->_view->assign('reserva',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->find($this->filtrarInt($id)));
+        $this->_view->assign('reserva',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->find($this->filtrarInt($id)));
         $this->_view->renderizar('view');
     }
 
     public function edit($id = null)
     {
+        $this->verificarRolAdminSuper();
         $this->verificarReserva($id);
 
         $this->_view->assign('titulo','Editar Reserva');
@@ -64,7 +66,7 @@ class reservasController extends Controller
             $reserva->reserva_status_id = $this->getInt('status');
             $reserva->save();
 
-            Session::set('success','El status de la reserva se ha modificado correctamente');
+            Session::set('msg_success','El status de la reserva se ha modificado correctamente');
             $this->redireccionar('reservas/view/' . $this->filtrarInt($id));
         }
 
@@ -73,17 +75,20 @@ class reservasController extends Controller
 
     public function horariosReserva()
     {
+        $this->verificarRolAdminSuper();
         $this->verificarMensajes();
 
         $this->_view->assign('titulo','Reservas');
         $this->_view->assign('title','Reservas');
         $this->_view->assign('title_horario','Horarios');
         $this->_view->assign('enviar', CTRL);
-        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario'])->whereDate('fecha',
+        $this->_view->assign('reservas',Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->whereDate('fecha',
         $this->getSql('fecha'))->orderBy('horario_id', 'DESC')->get());
 
         if ($this->getAlphaNum('enviar') == CTRL) {
             $this->_view->assign('fecha', $_POST);
+
+            //print_r($_POST);exit;
 
             $hoy = getdate();
             $day = ($hoy['mday'] < 10) ? 0 .$hoy['mday'] : $hoy['mday'];
@@ -129,6 +134,7 @@ class reservasController extends Controller
 
     public function add($horario = null, $fecha = null)
     {
+        $this->verificarRolAdminSuper();
         $this->verificarHorario($horario);
 
         $this->_view->assign('titulo','Reservar Hora');

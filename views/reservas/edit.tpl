@@ -8,6 +8,8 @@
                 {include file="../partials/_mensajes.tpl"}
 
                 <p class="text-danger">Campos obligatorios *</p>
+                <p>Fecha: {$reserva.fecha|date_format:"%d-%m-%Y"}</p>
+                <p>Horario: {$reserva.horario.rango_hora}</p>
                 {include file="../reservas/_form.tpl"}
             </div>
         </div>
