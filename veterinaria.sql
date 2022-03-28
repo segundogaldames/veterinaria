@@ -86,7 +86,7 @@ CREATE TABLE `funcionario_rol` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `funcionario_rol` (
 
 LOCK TABLES `funcionario_rol` WRITE;
 /*!40000 ALTER TABLE `funcionario_rol` DISABLE KEYS */;
-INSERT INTO `funcionario_rol` VALUES (2,1,2,'2021-11-29 20:43:18','2021-11-29 21:37:37'),(4,1,1,'2021-12-13 19:40:43','2021-12-13 19:40:43'),(5,3,3,'2021-12-13 20:08:12','2021-12-13 20:08:12'),(6,4,3,'2021-12-18 15:54:30','2021-12-18 15:54:30'),(8,4,2,'2021-12-18 16:05:06','2021-12-18 16:05:06');
+INSERT INTO `funcionario_rol` VALUES (2,1,2,'2021-11-29 20:43:18','2021-11-29 21:37:37'),(4,1,1,'2021-12-13 19:40:43','2021-12-13 19:40:43'),(5,3,3,'2021-12-13 20:08:12','2021-12-13 20:08:12'),(6,4,3,'2021-12-18 15:54:30','2021-12-18 15:54:30'),(9,2,2,'2022-03-28 16:02:20','2022-03-28 16:02:20');
 /*!40000 ALTER TABLE `funcionario_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,6 +241,32 @@ INSERT INTO `regiones` VALUES (1,'Metropolitana de Santiago','2021-11-20 17:07:3
 UNLOCK TABLES;
 
 --
+-- Table structure for table `reserva_status`
+--
+
+DROP TABLE IF EXISTS `reserva_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reserva_status` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reserva_status`
+--
+
+LOCK TABLES `reserva_status` WRITE;
+/*!40000 ALTER TABLE `reserva_status` DISABLE KEYS */;
+INSERT INTO `reserva_status` VALUES (1,'Pendiente','2022-03-23 09:42:16','2022-03-23 09:42:16'),(2,'Confirmada','2022-03-23 09:42:52','2022-03-23 09:42:52'),(3,'Realizada','2022-03-23 09:43:17','2022-03-23 09:43:17'),(4,'Anulada','2022-03-23 09:43:25','2022-03-23 09:43:25');
+/*!40000 ALTER TABLE `reserva_status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `reservas`
 --
 
@@ -252,7 +278,7 @@ CREATE TABLE `reservas` (
   `fecha` date NOT NULL,
   `nombre_paciente` varchar(255) NOT NULL,
   `nombre_cliente` varchar(255) NOT NULL,
-  `status` int NOT NULL,
+  `reserva_status_id` int NOT NULL,
   `horario_id` int NOT NULL,
   `servicio_tipo_id` int NOT NULL,
   `paciente_tipo_id` int NOT NULL,
@@ -261,7 +287,7 @@ CREATE TABLE `reservas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +296,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
-INSERT INTO `reservas` VALUES (1,'2022-01-27','Rambo','Margarita Pino',1,1,4,1,1,4,'2022-01-27 01:23:26','2022-01-27 01:23:26'),(2,'2022-01-27','Pipe','Luis Montes',1,2,3,2,1,3,'2022-01-27 01:27:37','2022-01-27 01:27:37');
+INSERT INTO `reservas` VALUES (1,'2022-01-27','Rambo','Margarita Pino',1,1,4,1,1,4,'2022-01-27 01:23:26','2022-01-27 01:23:26'),(2,'2022-01-27','Pipe','Luis Montes',1,2,3,2,1,3,'2022-01-27 01:27:37','2022-01-27 01:27:37'),(3,'2022-03-22','Coke','Luisa Morales',1,1,3,2,1,3,'2022-03-22 00:35:43','2022-03-22 00:35:43'),(4,'2022-03-22','Boby','Moises Cantuarias',1,3,2,1,1,4,'2022-03-22 12:34:43','2022-03-22 12:34:43'),(5,'2022-03-23','Darel','Segundo Galdames',4,2,2,2,1,4,'2022-03-23 09:20:28','2022-03-25 12:11:58'),(6,'2022-03-23','Cooky','Teresa Valdez',1,1,4,1,1,3,'2022-03-23 09:21:33','2022-03-23 09:21:33'),(7,'2022-03-25','Campanita','Manuel Andrade',1,1,4,3,1,3,'2022-03-25 12:13:06','2022-03-25 12:24:18'),(8,'2022-03-28','Toty','Jose Arias',1,3,4,1,1,3,'2022-03-28 15:33:28','2022-03-28 15:33:28'),(9,'2022-03-28','Pequitas','Margarita Riquelme',1,2,3,2,1,4,'2022-03-28 15:50:09','2022-03-28 15:50:09');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -451,4 +477,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-05 14:57:30
+-- Dump completed on 2022-03-28 17:28:20
