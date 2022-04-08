@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-21 18:34:36
+/* Smarty version 4.0.0-rc.0, created on 2022-03-29 17:05:33
   from '/var/www/html/veterinaria/views/servicios/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61eb26ec95b821_94059934',
+  'unifunc' => 'content_6243668d99bbb0_94732689',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '02d99447a1bd8211683d0ad0783a10c43a315d4b' => 
     array (
       0 => '/var/www/html/veterinaria/views/servicios/view.tpl',
-      1 => 1642800874,
+      1 => 1648584314,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61eb26ec95b821_94059934 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6243668d99bbb0_94732689 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -84,9 +84,12 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                     </tr>
                 </table>
                 <p>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                    <?php if (Helper::getRolAdmin()) {?>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 servicios/edit/<?php echo $_smarty_tpl->tpl_vars['servicio']->value['id'];?>
 " class="btn btn-outline-primary btn-sm">Editar</a>
+                    <?php }?>
+
                     <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 pacientes/view/<?php echo $_smarty_tpl->tpl_vars['servicio']->value['paciente_id'];?>
 " class="btn btn-outline-primary btn-sm">Volver</a>

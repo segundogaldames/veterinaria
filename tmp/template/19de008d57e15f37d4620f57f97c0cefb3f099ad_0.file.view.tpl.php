@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-21 17:31:38
+/* Smarty version 4.0.0-rc.0, created on 2022-03-29 16:59:03
   from '/var/www/html/veterinaria/views/pacientes/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61eb182a728bc5_95713247',
+  'unifunc' => 'content_62436507120d40_83164438',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '19de008d57e15f37d4620f57f97c0cefb3f099ad' => 
     array (
       0 => '/var/www/html/veterinaria/views/pacientes/view.tpl',
-      1 => 1642797095,
+      1 => 1648583925,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61eb182a728bc5_95713247 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62436507120d40_83164438 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -99,10 +99,13 @@ pacientes/edit/<?php echo $_smarty_tpl->tpl_vars['paciente']->value['id'];?>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 clientes/view/<?php echo $_smarty_tpl->tpl_vars['paciente']->value['cliente_id'];?>
 " class="btn btn-outline-primary btn-sm">Volver</a>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+
+                        <?php if (Helper::getRolAdminVeterinario()) {?>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 servicios/add/<?php echo $_smarty_tpl->tpl_vars['paciente']->value['id'];?>
 "
-                            class="btn btn-outline-success btn-sm">Agregar Servicio</a>
+                                class="btn btn-outline-success btn-sm">Agregar Servicio</a>
+                        <?php }?>
                     </p>
                 </div>
             </div>

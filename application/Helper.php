@@ -25,4 +25,16 @@ class Helper
 
         return false;
     }
+
+    public static function getRolAdminVeterinario()
+    {
+        foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
+        //echo $funcionarioRol->rol->nombre;
+            if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Veterinario(a)') {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

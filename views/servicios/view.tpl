@@ -49,7 +49,10 @@
                     </tr>
                 </table>
                 <p>
-                    <a href="{$_layoutParams.root}servicios/edit/{$servicio.id}" class="btn btn-outline-primary btn-sm">Editar</a>
+                    {if Helper::getRolAdmin()}
+                        <a href="{$_layoutParams.root}servicios/edit/{$servicio.id}" class="btn btn-outline-primary btn-sm">Editar</a>
+                    {/if}
+
                     <a href="{$_layoutParams.root}pacientes/view/{$servicio.paciente_id}" class="btn btn-outline-primary btn-sm">Volver</a>
                      <a href="{$_layoutParams.root}servicios"
                         class="btn btn-outline-primary btn-sm">Servicios</a>

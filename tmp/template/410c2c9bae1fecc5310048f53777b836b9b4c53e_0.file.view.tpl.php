@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-28 18:23:18
+/* Smarty version 4.0.0-rc.0, created on 2022-03-29 16:34:44
   from '/var/www/html/veterinaria/views/reservas/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_6242274690e0b9_92706367',
+  'unifunc' => 'content_62435f54cf2146_76913188',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '410c2c9bae1fecc5310048f53777b836b9b4c53e' => 
     array (
       0 => '/var/www/html/veterinaria/views/reservas/view.tpl',
-      1 => 1648502593,
+      1 => 1648582482,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_6242274690e0b9_92706367 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62435f54cf2146_76913188 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -94,14 +94,18 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                     </tr>
                 </table>
                 <p>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+reservas/" class="btn btn-outline-primary btn-sm">Volver</a>
+
                     <?php if (Helper::getRolAdminSuper()) {?>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 reservas/edit/<?php echo $_smarty_tpl->tpl_vars['reserva']->value['id'];?>
 "
                             class="btn btn-outline-primary btn-sm">Cambiar Status</a>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+clientes"
+                            class="btn btn-outline-success btn-sm">Ver Clientes</a>
                     <?php }?>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-reservas/" class="btn btn-outline-primary btn-sm">Volver</a>
                 </p>
             </div>
         </div>

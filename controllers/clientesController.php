@@ -10,7 +10,7 @@ class clientesController extends Controller
     {
         parent::__construct();
         $this->verificarSession();
-        $this->verificarRolAdmin();
+        $this->verificarRolAdminSuper();
     }
 
     public function index()

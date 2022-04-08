@@ -59,8 +59,11 @@
                         <a href="{$_layoutParams.root}pacientes/edit/{$paciente.id}"
                             class="btn btn-outline-primary btn-sm">Editar</a>
                         <a href="{$_layoutParams.root}clientes/view/{$paciente.cliente_id}" class="btn btn-outline-primary btn-sm">Volver</a>
-                        <a href="{$_layoutParams.root}servicios/add/{$paciente.id}"
-                            class="btn btn-outline-success btn-sm">Agregar Servicio</a>
+
+                        {if Helper::getRolAdminVeterinario()}
+                            <a href="{$_layoutParams.root}servicios/add/{$paciente.id}"
+                                class="btn btn-outline-success btn-sm">Agregar Servicio</a>
+                        {/if}
                     </p>
                 </div>
             </div>

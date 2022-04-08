@@ -9,7 +9,6 @@ class serviciosController extends Controller
     {
         parent::__construct();
         $this->verificarSession();
-        $this->verificarRolAdminVeterinario();
     }
 
     public function index()
@@ -35,6 +34,7 @@ class serviciosController extends Controller
 
     public function edit($id = null)
     {
+        $this->verificarRolAdmin();
         $this->verificarServicio($id);
 
         $this->_view->assign('titulo','Editar Servicio');
@@ -76,6 +76,7 @@ class serviciosController extends Controller
 
     public function add($paciente)
     {
+        $this->verificarRolAdminVeterinario();
         $this->verificarPaciente($paciente);
 
         $this->_view->assign('titulo','Nuevo Servicio');

@@ -9,6 +9,7 @@ class pacientesController extends Controller
     {
         parent::__construct();
         $this->verificarSession();
+        $this->verificarRolAdminSuper();
     }
 
     public function index()

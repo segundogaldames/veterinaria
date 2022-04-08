@@ -39,7 +39,7 @@ abstract class Controller
 			}
 		}
 
-		$this->redireccionar();
+		$this->redireccionar('funcionarios/miPerfil');
 	}
 
 	protected function verificarRolAdminSuper(){
@@ -50,7 +50,7 @@ abstract class Controller
 			}
 		}
 
-		$this->redireccionar();
+		$this->redireccionar('funcionarios/miPerfil');
 	}
 
 	protected function verificarRolAdminVeterinario(){
@@ -61,7 +61,7 @@ abstract class Controller
 			}
 		}
 
-		$this->redireccionar();
+		$this->redireccionar('funcionarios/miPerfil');
 	}
 
 	protected  function verificarMensajes(){

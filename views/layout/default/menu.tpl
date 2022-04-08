@@ -17,7 +17,7 @@
 
 				{if isset(Session::get('autenticado'))}
 
-					{if Helper::getRolAdmin()}
+					{if Helper::getRolAdminSuper()}
 						<li class="nav-item"><a href="{$_layoutParams.root}admin/" class="nav-link">Administración</a></li>
 					{/if}
 
