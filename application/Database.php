@@ -12,7 +12,7 @@ $database->addConnection([
     'collation' => 'utf8_unicode_ci'
 ]);
 
-date_default_timezone_set('America/Argentina/Buenos_Aires');
+date_default_timezone_set('America/Santiago');
 
 $database->setAsGlobal();
 $database->bootEloquent();

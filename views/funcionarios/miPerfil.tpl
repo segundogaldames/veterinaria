@@ -108,6 +108,7 @@
                             <tr>
                                 <th>Fecha</th>
                                 <th>Horario</th>
+                                <th>Paciente</th>
                                 <th>Tipo de Servicio</th>
                                 <th>Tipo de Paciente</th>
                                 <th>Veterinario</th>
@@ -122,6 +123,10 @@
                                         </a>
                                     </td>
                                     <td>{$reserva.horario.rango_hora}</td>
+                                    <td>
+                <a href="">{$reserva.nombre_paciente}</a>
+
+                                    </td>
                                     <td>{$reserva.servicioTipo.nombre}</td>
                                     <td>{$reserva.pacienteTipo.nombre}</td>
                                     <td>{$reserva.funcionario.nombre}</td>

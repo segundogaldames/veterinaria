@@ -24,7 +24,7 @@ class Request
 			if(!$this->_modulo):
 				$this->_modulo = false;
 			else:
-				if(@	count($this->_modules)):
+				if(is_countable($this->_modules)):
 					if(!in_array($this->_modulo, $this->_modules)):
 						$this->_controlador = $this->_modulo;
 						$this->_modulo = false;

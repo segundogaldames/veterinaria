@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-28 18:09:26
+/* Smarty version 4.0.0-rc.0, created on 2022-04-15 19:01:54
   from '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_624224064125d9_18180958',
+  'unifunc' => 'content_6259f9629acc69_83354478',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7799f157368e71a54b70448bbf513ea553aced66' => 
     array (
       0 => '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl',
-      1 => 1648501763,
+      1 => 1650063711,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_624224064125d9_18180958 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6259f9629acc69_83354478 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -163,6 +163,7 @@ reservas/horariosReserva" method="post">
                             <tr>
                                 <th>Fecha</th>
                                 <th>Horario</th>
+                                <th>Paciente</th>
                                 <th>Tipo de Servicio</th>
                                 <th>Tipo de Paciente</th>
                                 <th>Veterinario</th>
@@ -185,6 +186,8 @@ reservas/view/<?php echo $_smarty_tpl->tpl_vars['reserva']->value['id'];?>
                                         </a>
                                     </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['horario']['rango_hora'];?>
+</td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['nombre_paciente'];?>
 </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['servicioTipo']['nombre'];?>
 </td>
