@@ -20,7 +20,9 @@
                         </tr>
                         {foreach from=$servicios item=servicio}
                             <tr>
-                                <td>{$servicio.id}</td>
+                                <td>
+                                    <a href="{$_layoutParams.root}servicios/view/{$servicio.id}">{$servicio.id}</a>
+                                </td>
                                 <td>{$servicio.servicioTipo.nombre}</td>
                                 <td>
                                     <a href="{$_layoutParams.root}pacientes/view/{$servicio.paciente.id}" title="Ver Paciente">
@@ -32,12 +34,8 @@
                                         {$servicio.paciente.cliente.rut}
                                     </a>
                                 </td>
-                                <td>{$servicio.usuario.funcionario.nombre}</td>
-                                <td>
-                                    <a href="{$_layoutParams.root}servicios/view/{$servicio.id}">
-                                        {$servicio.created_at|date_format:"%d-%m-%Y %H:%M:%S"}
-                                    </a>
-                                </td>
+                                <td>{$servicio.funcionario.nombre}</td>
+                                <td>{$servicio.horario.rango_hora}</td>
                             </tr>
                         {/foreach}
                     </table>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServicioTipo extends Model
 {
     protected $table = 'servicio_tipos';
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','precio'];
 
     public function servicios()
     {

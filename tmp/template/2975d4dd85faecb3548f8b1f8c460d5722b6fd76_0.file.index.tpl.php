@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-19 00:01:45
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 13:31:26
   from '/var/www/html/veterinaria/views/serviciotipos/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61e77f19aefc35_33626967',
+  'unifunc' => 'content_625afd6e63a9f7_26223957',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2975d4dd85faecb3548f8b1f8c460d5722b6fd76' => 
     array (
       0 => '/var/www/html/veterinaria/views/serviciotipos/index.tpl',
-      1 => 1642561302,
+      1 => 1650130283,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61e77f19aefc35_33626967 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625afd6e63a9f7_26223957 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="col-md-6 ftco-animate">
@@ -40,6 +40,7 @@ serviciotipos/add" class="btn btn-outline-success btn-sm">Crear Servicio Tipo</a
                     <table class="table table-hover">
                         <tr>
                             <th>Tipo Servicio</th>
+                            <th>Precio</th>
                         </tr>
                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipos']->value, 'tipo');
@@ -54,6 +55,8 @@ serviciotipos/view/<?php echo $_smarty_tpl->tpl_vars['tipo']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['tipo']->value['nombre'];?>
 </a>
                                 </td>
+                                <td>$ <?php echo number_format($_smarty_tpl->tpl_vars['tipo']->value['precio'],0,",",".");?>
+</td>
                             </tr>
                         <?php
 }

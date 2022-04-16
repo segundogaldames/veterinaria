@@ -16,7 +16,7 @@ class serviciotiposController extends Controller
 
         $this->_view->assign('titulo','Servicio Tipos');
         $this->_view->assign('title','Tipo de Servicios');
-        $this->_view->assign('tipos', ServicioTipo::select('id','nombre')->orderBy('nombre')->get());
+        $this->_view->assign('tipos', ServicioTipo::select('id','nombre','precio')->orderBy('nombre')->get());
         $this->_view->renderizar('index');
     }
 
@@ -50,16 +50,23 @@ class serviciotiposController extends Controller
                 exit;
             }
 
-            $tipo = ServicioTipo::select('id')->where('nombre', $this->getSql('nombre'))->first();
+            if (!$this->getInt('precio')) {
+                $this->_view->assign('_error','Ingrese el precio del tipo de servicio');
+                $this->_view->renderizar('edit');
+                exit;
+            }
+
+            $tipo = ServicioTipo::select('id')->where('nombre', $this->getSql('nombre'))->where('precio', $this->getInt('precio'))->first();
 
             if ($tipo) {
-                $this->_view->assign('_error','El tipo de servicio ingresado ya existe... intente con otro nombre');
+                $this->_view->assign('_error','El tipo de servicio ingresado ya existe... modifique alguno de los datos para continuar');
                 $this->_view->renderizar('edit');
                 exit;
             }
 
             $tipo = ServicioTipo::find($this->filtrarInt($id));
             $tipo->nombre = $this->getSql('nombre');
+            $tipo->precio = $this->getInt('precio');
             $tipo->save();
 
             Session::set('msg_success','El tipo de servicio se ha modificado correctamente');
@@ -87,6 +94,12 @@ class serviciotiposController extends Controller
                 exit;
             }
 
+            if (!$this->getInt('precio')) {
+                $this->_view->assign('_error','Ingrese el precio del tipo de servicio');
+                $this->_view->renderizar('add');
+                exit;
+            }
+
             $tipo = ServicioTipo::select('id')->where('nombre', $this->getSql('nombre'))->first();
 
             if ($tipo) {
@@ -97,6 +110,7 @@ class serviciotiposController extends Controller
 
             $tipo = new ServicioTipo;
             $tipo->nombre = $this->getSql('nombre');
+            $tipo->precio = $this->getInt('precio');
             $tipo->save();
 
             Session::set('msg_success','El tipo de servicio se ha registrado correctamente');

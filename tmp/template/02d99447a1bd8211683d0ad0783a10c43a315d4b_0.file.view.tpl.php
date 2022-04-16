@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-03-29 17:05:33
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 14:08:52
   from '/var/www/html/veterinaria/views/servicios/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_6243668d99bbb0_94732689',
+  'unifunc' => 'content_625b0634317dc0_60707310',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '02d99447a1bd8211683d0ad0783a10c43a315d4b' => 
     array (
       0 => '/var/www/html/veterinaria/views/servicios/view.tpl',
-      1 => 1648584314,
+      1 => 1650132346,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_6243668d99bbb0_94732689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b0634317dc0_60707310 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -43,11 +43,6 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
 </td>
                     </tr>
                     <tr>
-                        <th>Precio:</th>
-                        <td>$ <?php echo number_format($_smarty_tpl->tpl_vars['servicio']->value['precio'],0);?>
-</td>
-                    </tr>
-                    <tr>
                         <th>Urgencia:</th>
                         <td>
                             <?php if ($_smarty_tpl->tpl_vars['servicio']->value['urgencia'] == 1) {?>
@@ -57,6 +52,16 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                             <?php }?>
                         </td>
                     </tr>
+                     <tr>
+                         <th>Status:</th>
+                         <td>
+                             <?php if ($_smarty_tpl->tpl_vars['servicio']->value['status'] == 1) {?>
+                                 Pendiente
+                             <?php } else { ?>
+                                 Realizado
+                             <?php }?>
+                         </td>
+                    </tr>
                     <tr>
                         <th>Paciente:</th>
                         <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['paciente']['nombre'];?>
@@ -64,12 +69,17 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                     </tr>
                     <tr>
                         <th>Atendido Por:</th>
-                        <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['usuario']['funcionario']['nombre'];?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['funcionario']['nombre'];?>
 </td>
                     </tr>
                     <tr>
                         <th>Tipo de Servicio:</th>
                         <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['servicioTipo']['nombre'];?>
+</td>
+                    </tr>
+                    <tr>
+                        <th>Horario:</th>
+                        <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['horario']['rango_hora'];?>
 </td>
                     </tr>
                     <tr>

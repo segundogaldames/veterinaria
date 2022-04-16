@@ -14,6 +14,10 @@
                         <td>{$tipo.nombre}</td>
                     </tr>
                     <tr>
+                        <th>Precio:</th>
+                        <td>$ {$tipo.precio|number_format:0:",":"."}</td>
+                    </tr>
+                    <tr>
                         <th>Creado:</th>
                         <td>{$tipo.created_at|date_format:"%d-%m-%Y %H:%M:%S"}</td>
                     </tr>

@@ -13,12 +13,14 @@
                     <table class="table table-hover">
                         <tr>
                             <th>Tipo Servicio</th>
+                            <th>Precio</th>
                         </tr>
                         {foreach from=$tipos item=tipo}
                             <tr>
                                 <td>
                                     <a href="{$_layoutParams.root}serviciotipos/view/{$tipo.id}">{$tipo.nombre}</a>
                                 </td>
+                                <td>$ {$tipo.precio|number_format:0:",":"."}</td>
                             </tr>
                         {/foreach}
                     </table>

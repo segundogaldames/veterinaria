@@ -14,10 +14,6 @@
                         <td>{$servicio.descripcion}</td>
                     </tr>
                     <tr>
-                        <th>Precio:</th>
-                        <td>$ {$servicio.precio|number_format:0}</td>
-                    </tr>
-                    <tr>
                         <th>Urgencia:</th>
                         <td>
                             {if $servicio.urgencia == 1}
@@ -27,17 +23,31 @@
                             {/if}
                         </td>
                     </tr>
+                     <tr>
+                         <th>Status:</th>
+                         <td>
+                             {if $servicio.status == 1}
+                                 Pendiente
+                             {else}
+                                 Realizado
+                             {/if}
+                         </td>
+                    </tr>
                     <tr>
                         <th>Paciente:</th>
                         <td>{$servicio.paciente.nombre}</td>
                     </tr>
                     <tr>
                         <th>Atendido Por:</th>
-                        <td>{$servicio.usuario.funcionario.nombre}</td>
+                        <td>{$servicio.funcionario.nombre}</td>
                     </tr>
                     <tr>
                         <th>Tipo de Servicio:</th>
                         <td>{$servicio.servicioTipo.nombre}</td>
+                    </tr>
+                    <tr>
+                        <th>Horario:</th>
+                        <td>{$servicio.horario.rango_hora}</td>
                     </tr>
                     <tr>
                         <th>Creado:</th>
