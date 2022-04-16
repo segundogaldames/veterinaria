@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-04-16 14:08:52
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 15:58:13
   from '/var/www/html/veterinaria/views/servicios/view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_625b0634317dc0_60707310',
+  'unifunc' => 'content_625b1fd5aea583_13066865',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '02d99447a1bd8211683d0ad0783a10c43a315d4b' => 
     array (
       0 => '/var/www/html/veterinaria/views/servicios/view.tpl',
-      1 => 1650132346,
+      1 => 1650139091,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_625b0634317dc0_60707310 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b1fd5aea583_13066865 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -68,7 +68,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
 </td>
                     </tr>
                     <tr>
-                        <th>Atendido Por:</th>
+                        <th>Asignado A:</th>
                         <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['funcionario']['nombre'];?>
 </td>
                     </tr>
@@ -94,7 +94,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/li
                     </tr>
                 </table>
                 <p>
-                    <?php if (Helper::getRolAdmin()) {?>
+                    <?php if (Helper::getRolAdminVeterinario()) {?>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 servicios/edit/<?php echo $_smarty_tpl->tpl_vars['servicio']->value['id'];?>
 " class="btn btn-outline-primary btn-sm">Editar</a>

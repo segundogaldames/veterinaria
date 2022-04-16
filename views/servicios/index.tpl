@@ -15,8 +15,9 @@
                             <th>Tipo de Servicio</th>
                             <th>Paciente</th>
                             <th>RUT Cliente</th>
-                            <th>Atentido Por</th>
-                            <th>Fecha - Hora</th>
+                            <th>Asignado A</th>
+                            <th>Fecha - Horario</th>
+                            <th>Status</th>
                         </tr>
                         {foreach from=$servicios item=servicio}
                             <tr>
@@ -35,7 +36,14 @@
                                     </a>
                                 </td>
                                 <td>{$servicio.funcionario.nombre}</td>
-                                <td>{$servicio.horario.rango_hora}</td>
+                                <td>{$servicio.created_at|date_format:"%d-%m-%Y"} - {$servicio.horario.rango_hora}</td>
+                                <td>
+                                    {if $servicio.status == 1}
+                                        Pendiente
+                                    {else}
+                                        Realizado
+                                    {/if}
+                                </td>
                             </tr>
                         {/foreach}
                     </table>

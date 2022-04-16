@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-05 22:11:26
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 15:38:58
   from '/var/www/html/veterinaria/views/videos/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61d641be2380d6_16661392',
+  'unifunc' => 'content_625b1b520aa279_72475070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_61d641be2380d6_16661392 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b1b520aa279_72475070 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">

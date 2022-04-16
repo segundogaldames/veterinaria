@@ -94,16 +94,23 @@
             <div class="col-md-7 ftco-animate">
                 {* reservas *}
                 <div class="sidebar-box ftco-animate">
-                    <form class="form-inline" action="{$_layoutParams.root}reservas/horariosReserva" method="post">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="date" name="fecha" value="{$fecha.fecha|default:""}" class="form-control"
-                                id="inputPassword2" placeholder="Fecha">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form class="form-inline" action="{$_layoutParams.root}reservas/horariosReserva" method="post">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="date" name="fecha" value="{$fecha.fecha|default:""}" class="form-control"
+                                        id="inputPassword2" placeholder="Fecha">
+                                </div>
+                                <input type="hidden" name="enviar" value="{$enviar}">
+                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                            </form>
                         </div>
-                        <input type="hidden" name="enviar" value="{$enviar}">
-                        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                    </form>
+                        <div class="col-md-6">
+                            <a href="{$_layoutParams.root}servicios" class="btn btn-outline-primary">Ver Servicios</a>
+                        </div>
+                    </div>
                     <h3>Reservas</h3>
-                    {if isset($reservas) && count($reservas)}
+                    {if isset($servicios) && count($servicios)}
                         <table class="table table-hover">
                             <tr>
                                 <th>Fecha</th>
@@ -111,32 +118,34 @@
                                 <th>Paciente</th>
                                 <th>Tipo de Servicio</th>
                                 <th>Tipo de Paciente</th>
-                                <th>Veterinario</th>
                                 <th>Status</th>
-                                <th>Reservado por</th>
                             </tr>
-                            {foreach from=$reservas item=reserva}
+                            {foreach from=$servicios item=servicio}
                                 <tr>
                                     <td>
-                                        <a href="{$_layoutParams.root}reservas/view/{$reserva.id}">
-                                            {$reserva.fecha|date_format:"%d-%m-%Y"}
+                                        <a href="{$_layoutParams.root}servicios/view/{$servicio.id}">
+                                            {$servicio.created_at|date_format:"%d-%m-%Y"}
                                         </a>
                                     </td>
-                                    <td>{$reserva.horario.rango_hora}</td>
+                                    <td>{$servicio.horario.rango_hora}</td>
                                     <td>
-                <a href="">{$reserva.nombre_paciente}</a>
-
+                                        {$servicio.paciente.nombre}
                                     </td>
-                                    <td>{$reserva.servicioTipo.nombre}</td>
-                                    <td>{$reserva.pacienteTipo.nombre}</td>
-                                    <td>{$reserva.funcionario.nombre}</td>
-                                    <td>{$reserva.reservaStatus.nombre}</td>
-                                    <td>{$reserva.usuario.funcionario.nombre}</td>
+                                    <td>{$servicio.servicioTipo.nombre}</td>
+                                    <td>{$servicio.paciente.pacienteTipo.nombre}</td>
+                                    <td>
+                                        {if $servicio.status == 1}
+                                            Pendiente
+                                        {else}
+                                            Realizado
+                                        {/if}
+                                    </td>
+
                                 </tr>
                             {/foreach}
                         </table>
                     {else}
-                        <p class="text-info">No hay reservas registradas</p>
+                        <p class="text-info">No hay servicios disponibles</p>
                     {/if}
                 </div>
             </div>

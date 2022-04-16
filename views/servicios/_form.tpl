@@ -22,17 +22,6 @@
 
         <div class="mb-3">
             <label for="tipo" class="label text-success" style="font-weight: bold; font-size: 14px;">Tipo Servicio <span
-            class="text-danger">*</span></label>
-            <select name="tipo" class="form-control">
-
-                <option value="">Seleccione...</option>
-                    {foreach from=$tipos item=tipo}
-                        <option value="{$tipo.id}">{$tipo.nombre}</option>
-                    {/foreach}
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="tipo" class="label text-success" style="font-weight: bold; font-size: 14px;">Tipo Servicio <span
                     class="text-danger">*</span></label>
             <select name="tipo" class="form-control">
 

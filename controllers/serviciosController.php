@@ -19,7 +19,16 @@ class serviciosController extends Controller
 
         $this->_view->assign('titulo','Servicios');
         $this->_view->assign('title','Servicios');
-        $this->_view->assign('servicios', Servicio::with(['paciente','usuario','servicioTipo','horario'])->orderBy('id', 'DESC')->take(50)->get());
+        foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
+            //echo $funcionarioRol->rol->nombre;
+            if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
+                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->get();
+            }elseif ($funcionarioRol->rol->nombre == 'Veterinario(a)') {
+                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->where('funcionario_id',
+                Session::get('funcionario_id'))->get();
+            }
+        }
+        $this->_view->assign('servicios', $servicios);
         $this->_view->renderizar('index');
     }
 
@@ -30,7 +39,7 @@ class serviciosController extends Controller
 
         $this->_view->assign('titulo','Servicio');
         $this->_view->assign('title','Servicio');
-        $this->_view->assign('servicio', Servicio::with(['paciente','usuario','servicioTipo','horario'])->find($this->filtrarInt($id)));
+        $this->_view->assign('servicio', Servicio::with(['paciente','funcionario','servicioTipo','horario'])->find($this->filtrarInt($id)));
         $this->_view->renderizar('view');
     }
 

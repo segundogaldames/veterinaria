@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-04-15 19:01:54
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 16:10:03
   from '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_6259f9629acc69_83354478',
+  'unifunc' => 'content_625b229b2757f3_37511765',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7799f157368e71a54b70448bbf513ea553aced66' => 
     array (
       0 => '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl',
-      1 => 1650063711,
+      1 => 1650139800,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_6259f9629acc69_83354478 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b229b2757f3_37511765 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -146,19 +146,27 @@ usuarios/editPassword/<?php echo $_smarty_tpl->tpl_vars['funcionario']->value['i
             </div>
                         <div class="col-md-7 ftco-animate">
                                 <div class="sidebar-box ftco-animate">
-                    <form class="form-inline" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form class="form-inline" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 reservas/horariosReserva" method="post">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="date" name="fecha" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['fecha']->value['fecha'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="date" name="fecha" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['fecha']->value['fecha'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 " class="form-control"
-                                id="inputPassword2" placeholder="Fecha">
-                        </div>
-                        <input type="hidden" name="enviar" value="<?php echo $_smarty_tpl->tpl_vars['enviar']->value;?>
+                                        id="inputPassword2" placeholder="Fecha">
+                                </div>
+                                <input type="hidden" name="enviar" value="<?php echo $_smarty_tpl->tpl_vars['enviar']->value;?>
 ">
-                        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                    </form>
+                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+servicios" class="btn btn-outline-primary">Ver Servicios</a>
+                        </div>
+                    </div>
                     <h3>Reservas</h3>
-                    <?php if ((isset($_smarty_tpl->tpl_vars['reservas']->value)) && count($_smarty_tpl->tpl_vars['reservas']->value)) {?>
+                    <?php if ((isset($_smarty_tpl->tpl_vars['servicios']->value)) && count($_smarty_tpl->tpl_vars['servicios']->value)) {?>
                         <table class="table table-hover">
                             <tr>
                                 <th>Fecha</th>
@@ -166,46 +174,48 @@ reservas/horariosReserva" method="post">
                                 <th>Paciente</th>
                                 <th>Tipo de Servicio</th>
                                 <th>Tipo de Paciente</th>
-                                <th>Veterinario</th>
                                 <th>Status</th>
-                                <th>Reservado por</th>
                             </tr>
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['reservas']->value, 'reserva');
-$_smarty_tpl->tpl_vars['reserva']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['reserva']->value) {
-$_smarty_tpl->tpl_vars['reserva']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['servicios']->value, 'servicio');
+$_smarty_tpl->tpl_vars['servicio']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['servicio']->value) {
+$_smarty_tpl->tpl_vars['servicio']->do_else = false;
 ?>
                                 <tr>
                                     <td>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-reservas/view/<?php echo $_smarty_tpl->tpl_vars['reserva']->value['id'];?>
+servicios/view/<?php echo $_smarty_tpl->tpl_vars['servicio']->value['id'];?>
 ">
-                                            <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['reserva']->value['fecha'],"%d-%m-%Y");?>
+                                            <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['servicio']->value['created_at'],"%d-%m-%Y");?>
 
                                         </a>
                                     </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['horario']['rango_hora'];?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['horario']['rango_hora'];?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['nombre_paciente'];?>
+                                    <td>
+                                        <?php echo $_smarty_tpl->tpl_vars['servicio']->value['paciente']['nombre'];?>
+
+                                    </td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['servicioTipo']['nombre'];?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['servicioTipo']['nombre'];?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['paciente']['pacienteTipo']['nombre'];?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['pacienteTipo']['nombre'];?>
-</td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['funcionario']['nombre'];?>
-</td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['reservaStatus']['nombre'];?>
-</td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['reserva']->value['usuario']['funcionario']['nombre'];?>
-</td>
+                                    <td>
+                                        <?php if ($_smarty_tpl->tpl_vars['servicio']->value['status'] == 1) {?>
+                                            Pendiente
+                                        <?php } else { ?>
+                                            Realizado
+                                        <?php }?>
+                                    </td>
+
                                 </tr>
                             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </table>
                     <?php } else { ?>
-                        <p class="text-info">No hay reservas registradas</p>
+                        <p class="text-info">No hay servicios disponibles</p>
                     <?php }?>
                 </div>
             </div>

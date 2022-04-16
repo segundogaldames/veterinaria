@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-01-21 18:40:58
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 15:58:36
   from '/var/www/html/veterinaria/views/servicios/edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_61eb286a880376_63827151',
+  'unifunc' => 'content_625b1fec1b39c4_21010182',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../servicios/_form.tpl' => 1,
   ),
 ),false)) {
-function content_61eb286a880376_63827151 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b1fec1b39c4_21010182 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="col-md-6 ftco-animate">

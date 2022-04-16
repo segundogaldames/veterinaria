@@ -19,7 +19,7 @@ class clientesController extends Controller
 
         $this->_view->assign('titulo', 'Clientes');
         $this->_view->assign('title', 'Clientes');
-        $this->_view->assign('clientes', Cliente::with('comuna')->orderBy('nombre')->get());
+        $this->_view->assign('clientes', Cliente::with('comuna')->orderBy('id', 'desc')->get());
         $this->_view->assign('enviar', CTRL);
         $this->_view->renderizar('index');
     }

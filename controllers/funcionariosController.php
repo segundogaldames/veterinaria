@@ -4,6 +4,7 @@ use models\Comuna;
 use models\FuncionarioRol;
 use models\Telefono;
 use models\Reserva;
+use models\Servicio;
 
 class funcionariosController extends Controller
 {
@@ -65,13 +66,13 @@ class funcionariosController extends Controller
         foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
             //echo $funcionarioRol->rol->nombre;
             if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
-                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->get();
+                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->get();
             }elseif ($funcionarioRol->rol->nombre == 'Veterinario(a)') {
-                $reservas = Reserva::with(['servicioTipo','pacienteTipo','reservaStatus','horario','funcionario','usuario'])->orderBy('fecha','DESC')->orderBy('horario_id','DESC')->where('fecha', $hoy)->where('funcionario_id', Session::get('funcionario_id'))->get();
+                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->where('funcionario_id', Session::get('funcionario_id'))->where('status', 1)->get();
             }
         }
 
-        $this->_view->assign('reservas', $reservas);
+        $this->_view->assign('servicios', $servicios);
         $this->_view->renderizar('miPerfil');
     }
 

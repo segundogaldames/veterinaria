@@ -38,7 +38,7 @@
                         <td>{$servicio.paciente.nombre}</td>
                     </tr>
                     <tr>
-                        <th>Atendido Por:</th>
+                        <th>Asignado A:</th>
                         <td>{$servicio.funcionario.nombre}</td>
                     </tr>
                     <tr>
@@ -59,7 +59,7 @@
                     </tr>
                 </table>
                 <p>
-                    {if Helper::getRolAdmin()}
+                    {if Helper::getRolAdminVeterinario()}
                         <a href="{$_layoutParams.root}servicios/edit/{$servicio.id}" class="btn btn-outline-primary btn-sm">Editar</a>
                     {/if}
 

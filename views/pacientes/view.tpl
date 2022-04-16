@@ -1,7 +1,7 @@
 <section class="ftco-section ftco-degree-bg">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 ftco-animate">
+            <div class="col-md-5 ftco-animate">
                 <div class="sidebar-box ftco-animate">
                     <h3>
                         {$title}
@@ -60,7 +60,7 @@
                             class="btn btn-outline-primary btn-sm">Editar</a>
                         <a href="{$_layoutParams.root}clientes/view/{$paciente.cliente_id}" class="btn btn-outline-primary btn-sm">Volver</a>
 
-                        {if Helper::getRolAdminVeterinario()}
+                        {if Helper::getRolAdminSuper()}
                             <a href="{$_layoutParams.root}servicios/add/{$paciente.id}"
                                 class="btn btn-outline-success btn-sm">Agregar Servicio</a>
                         {/if}
@@ -68,7 +68,7 @@
                 </div>
             </div>
             {* sidebar derecho *}
-            <div class="col-md-6 ftco-animate">
+            <div class="col-md-7 ftco-animate">
                 {* lista de servicios *}
                 <div class="sidebar-box ftco-animate">
                 <h3>Servicios</h3>
@@ -78,6 +78,8 @@
                             <th>Tipo de Servicio</th>
                             <th>Precio</th>
                             <th>Urgencia</th>
+                            <th>Status</th>
+                            <th>Horario</th>
                             <th>Fecha</th>
                         </tr>
                         {foreach from=$paciente.servicios item=servicio}
@@ -86,7 +88,7 @@
                                     {$servicio.servicioTipo.nombre}
                                 </td>
                                 <td>
-                                    $ {$servicio.precio|number_format:0}
+                                    $ {$servicio.servicioTipo.precio|number_format:0:",":"."}
                                 </td>
                                 <td>
                                     {if $servicio.urgencia == 1}
@@ -95,6 +97,14 @@
                                         No
                                     {/if}
                                 </td>
+                                <td>
+                                    {if $servicio.status == 1}
+                                        Pendiente
+                                    {else}
+                                        Realizado
+                                    {/if}
+                                </td>
+                                <td>{$servicio.horario.rango_hora}</td>
                                 <td>
                                     <a href="{$_layoutParams.root}servicios/view/{$servicio.id}">{$servicio.created_at|date_format:"%d-%m-%Y %H:%M:%S"}</a>
                                 </td>

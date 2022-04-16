@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-04-16 14:08:47
+/* Smarty version 4.0.0-rc.0, created on 2022-04-16 15:58:20
   from '/var/www/html/veterinaria/views/servicios/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_625b062f128d94_00615592',
+  'unifunc' => 'content_625b1fdc8f4fe7_88050799',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70c3dbec6cad71e44fce28cb43bf45e1aba7a43c' => 
     array (
       0 => '/var/www/html/veterinaria/views/servicios/index.tpl',
-      1 => 1650132523,
+      1 => 1650135957,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_625b062f128d94_00615592 (Smarty_Internal_Template $_smarty_tpl) {
-?><section class="ftco-section ftco-degree-bg">
+function content_625b1fdc8f4fe7_88050799 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
+?>
+<section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="col-md-10 ftco-animate">
             <div class="sidebar-box ftco-animate">
@@ -41,8 +43,9 @@ function content_625b062f128d94_00615592 (Smarty_Internal_Template $_smarty_tpl)
                             <th>Tipo de Servicio</th>
                             <th>Paciente</th>
                             <th>RUT Cliente</th>
-                            <th>Atentido Por</th>
-                            <th>Fecha - Hora</th>
+                            <th>Asignado A</th>
+                            <th>Fecha - Horario</th>
+                            <th>Status</th>
                         </tr>
                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['servicios']->value, 'servicio');
@@ -77,8 +80,16 @@ clientes/view/<?php echo $_smarty_tpl->tpl_vars['servicio']->value['paciente']['
                                 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['funcionario']['nombre'];?>
 </td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['servicio']->value['horario']['rango_hora'];?>
+                                <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['servicio']->value['created_at'],"%d-%m-%Y");?>
+ - <?php echo $_smarty_tpl->tpl_vars['servicio']->value['horario']['rango_hora'];?>
 </td>
+                                <td>
+                                    <?php if ($_smarty_tpl->tpl_vars['servicio']->value['status'] == 1) {?>
+                                        Pendiente
+                                    <?php } else { ?>
+                                        Realizado
+                                    <?php }?>
+                                </td>
                             </tr>
                         <?php
 }
