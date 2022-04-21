@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: veterinaria
 -- ------------------------------------------------------
--- Server version	8.0.28-0ubuntu0.20.04.3
+-- Server version	8.0.28-0ubuntu0.20.04.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `clientes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'16800356-0','Monica Sanchez Torres','monica.sanchez@miempresa.cl','Los Alamos 157',4,'2021-12-27 21:03:45','2021-12-27 21:51:43'),(2,'18963789-6','Javiera Lara Pardo','jlarap@gmail.com','Bernardo O\'higgins 2356',4,'2022-01-19 01:38:55','2022-01-19 01:38:55');
+INSERT INTO `clientes` VALUES (1,'16800356-0','Monica Sanchez Torres','monica.sanchez@miempresa.cl','Los Alamos 157',4,'2021-12-27 21:03:45','2021-12-27 21:51:43'),(2,'18963789-6','Javiera Lara Pardo','jlarap@gmail.com','Bernardo O\'higgins 2356',4,'2022-01-19 01:38:55','2022-01-19 01:38:55'),(3,'22569790-6','Juan Ahumada Saavedra','j.ahumadas@gmail.com','Manuel Rodriguez 311 Villa Santa Margarita',3,'2022-03-29 16:49:27','2022-03-29 16:49:27'),(4,'18963870-1','Victor Gonzalez','victor.gonzalez@gmail.com','13 Oriente 985',4,'2022-04-15 18:50:54','2022-04-15 18:50:54'),(5,'20654897-5','Luis Gonzalez Caceres','caceres.luis@gmail.com','Agustinas 1054',3,'2022-04-16 14:51:47','2022-04-16 14:51:47');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +201,7 @@ CREATE TABLE `pacientes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +210,7 @@ CREATE TABLE `pacientes` (
 
 LOCK TABLES `pacientes` WRITE;
 /*!40000 ALTER TABLE `pacientes` DISABLE KEYS */;
-INSERT INTO `pacientes` VALUES (1,'Coco','',3,2,0.000000,1,1,'2022-01-10 21:14:01','2022-01-10 21:14:01'),(2,'Minino','',2,1,3.750000,2,1,'2022-01-10 21:15:13','2022-01-10 23:43:09'),(3,'Lucas','',1,1,1.560000,2,1,'2022-01-10 23:04:14','2022-01-10 23:04:14'),(4,'Rayita','',3,1,2.800000,2,2,'2022-01-19 01:40:28','2022-01-19 01:40:28');
+INSERT INTO `pacientes` VALUES (1,'Coco','',3,2,0.000000,1,1,'2022-01-10 21:14:01','2022-01-10 21:14:01'),(2,'Minino','',2,1,3.750000,2,1,'2022-01-10 21:15:13','2022-01-10 23:43:09'),(3,'Lucas','',1,1,1.560000,2,1,'2022-01-10 23:04:14','2022-01-10 23:04:14'),(4,'Rayita','',3,1,2.800000,2,2,'2022-01-19 01:40:28','2022-01-19 01:40:28'),(5,'Negro','',2,1,2.870000,2,3,'2022-03-29 16:50:45','2022-03-29 16:50:45'),(6,'Pitufo','',1,1,6.000000,1,4,'2022-04-15 18:52:10','2022-04-15 18:52:10'),(7,'Cooky','',1,1,3.800000,2,5,'2022-04-16 14:54:17','2022-04-16 14:54:17');
 /*!40000 ALTER TABLE `pacientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +287,7 @@ CREATE TABLE `reservas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `reservas` (
 
 LOCK TABLES `reservas` WRITE;
 /*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
-INSERT INTO `reservas` VALUES (1,'2022-01-27','Rambo','Margarita Pino',1,1,4,1,1,4,'2022-01-27 01:23:26','2022-01-27 01:23:26'),(2,'2022-01-27','Pipe','Luis Montes',1,2,3,2,1,3,'2022-01-27 01:27:37','2022-01-27 01:27:37'),(3,'2022-03-22','Coke','Luisa Morales',1,1,3,2,1,3,'2022-03-22 00:35:43','2022-03-22 00:35:43'),(4,'2022-03-22','Boby','Moises Cantuarias',1,3,2,1,1,4,'2022-03-22 12:34:43','2022-03-22 12:34:43'),(5,'2022-03-23','Darel','Segundo Galdames',4,2,2,2,1,4,'2022-03-23 09:20:28','2022-03-25 12:11:58'),(6,'2022-03-23','Cooky','Teresa Valdez',1,1,4,1,1,3,'2022-03-23 09:21:33','2022-03-23 09:21:33'),(7,'2022-03-25','Campanita','Manuel Andrade',1,1,4,3,1,3,'2022-03-25 12:13:06','2022-03-25 12:24:18'),(8,'2022-03-28','Toty','Jose Arias',1,3,4,1,1,3,'2022-03-28 15:33:28','2022-03-28 15:33:28'),(9,'2022-03-28','Pequitas','Margarita Riquelme',1,2,3,2,1,4,'2022-03-28 15:50:09','2022-03-28 15:50:09');
+INSERT INTO `reservas` VALUES (1,'2022-01-27','Rambo','Margarita Pino',1,1,4,1,1,4,'2022-01-27 01:23:26','2022-01-27 01:23:26'),(2,'2022-01-27','Pipe','Luis Montes',1,2,3,2,1,3,'2022-01-27 01:27:37','2022-01-27 01:27:37'),(3,'2022-03-22','Coke','Luisa Morales',1,1,3,2,1,3,'2022-03-22 00:35:43','2022-03-22 00:35:43'),(4,'2022-03-22','Boby','Moises Cantuarias',1,3,2,1,1,4,'2022-03-22 12:34:43','2022-03-22 12:34:43'),(5,'2022-03-23','Darel','Segundo Galdames',4,2,2,2,1,4,'2022-03-23 09:20:28','2022-03-25 12:11:58'),(6,'2022-03-23','Cooky','Teresa Valdez',1,1,4,1,1,3,'2022-03-23 09:21:33','2022-03-23 09:21:33'),(7,'2022-03-25','Campanita','Manuel Andrade',1,1,4,3,1,3,'2022-03-25 12:13:06','2022-03-25 12:24:18'),(8,'2022-03-28','Toty','Jose Arias',1,3,4,1,1,3,'2022-03-28 15:33:28','2022-03-28 18:14:58'),(9,'2022-03-28','Pequitas','Margarita Riquelme',1,2,3,2,1,4,'2022-03-28 15:50:09','2022-03-28 15:50:09'),(10,'2022-03-29','Negro','Juan Ahumada',2,1,2,2,2,3,'2022-03-28 18:29:26','2022-03-29 16:51:20'),(11,'2022-04-15','Pitufo','Victor Gonzalez',2,1,3,1,1,3,'2022-04-15 18:42:12','2022-04-15 19:24:03'),(12,'2022-04-16','Cooky','Luis Gonzalez',1,2,4,2,2,3,'2022-04-16 14:49:25','2022-04-16 14:49:25');
 /*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,6 +336,7 @@ DROP TABLE IF EXISTS `servicio_tipos`;
 CREATE TABLE `servicio_tipos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
+  `precio` int NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -348,7 +349,7 @@ CREATE TABLE `servicio_tipos` (
 
 LOCK TABLES `servicio_tipos` WRITE;
 /*!40000 ALTER TABLE `servicio_tipos` DISABLE KEYS */;
-INSERT INTO `servicio_tipos` VALUES (1,'Cirugia','2022-01-18 23:59:55','2022-01-18 23:59:55'),(2,'Vacunas','2022-01-19 00:00:46','2022-01-19 00:00:46'),(3,'Esterilizaciones','2022-01-19 00:01:10','2022-01-19 00:05:20'),(4,'Examen de rutina','2022-01-21 18:44:10','2022-01-21 18:44:10');
+INSERT INTO `servicio_tipos` VALUES (1,'Cirugia Básica',60000,'2022-01-18 23:59:55','2022-04-16 13:27:35'),(2,'Vacunas',20000,'2022-01-19 00:00:46','2022-04-16 13:32:12'),(3,'Esterilizaciones',50000,'2022-01-19 00:01:10','2022-04-16 13:31:47'),(4,'Examen de rutina',15000,'2022-01-21 18:44:10','2022-04-16 13:31:59');
 /*!40000 ALTER TABLE `servicio_tipos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,16 +362,17 @@ DROP TABLE IF EXISTS `servicios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `servicios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `descripcion` text NOT NULL,
-  `precio` int NOT NULL,
+  `descripcion` text,
   `urgencia` int NOT NULL,
+  `status` int NOT NULL,
   `paciente_id` int NOT NULL,
-  `usuario_id` int NOT NULL,
+  `funcionario_id` int NOT NULL,
   `servicio_tipo_id` int NOT NULL,
+  `horario_id` int NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -379,7 +381,7 @@ CREATE TABLE `servicios` (
 
 LOCK TABLES `servicios` WRITE;
 /*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
-INSERT INTO `servicios` VALUES (1,'Vacunacion de rutina',10000,2,4,1,2,'2022-01-21 17:14:12','2022-01-21 17:14:12'),(2,'Examen de rutina para verificar presencia de parasitos',15000,2,4,4,4,'2022-01-21 18:31:17','2022-01-21 18:44:38');
+INSERT INTO `servicios` VALUES (1,'Vacunacion de rutina',2,1,4,1,2,1,'2022-01-21 17:14:12','2022-01-21 17:14:12'),(2,'Examen de rutina para verificar presencia de parasitos',2,1,4,4,4,3,'2022-01-21 18:31:17','2022-01-21 18:44:38'),(3,'Se revisa estado general del Cooky y no se encuentran patologias. Se recomienda vacunacion',2,2,7,3,4,2,'2022-04-16 14:56:54','2022-04-16 15:59:11');
 /*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +401,7 @@ CREATE TABLE `telefonos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +410,7 @@ CREATE TABLE `telefonos` (
 
 LOCK TABLES `telefonos` WRITE;
 /*!40000 ALTER TABLE `telefonos` DISABLE KEYS */;
-INSERT INTO `telefonos` VALUES (1,956874563,1,1,'Funcionario','2021-12-13 22:11:55','2021-12-13 22:11:55'),(5,885645783,1,1,'Cliente','2021-12-27 22:30:49','2021-12-27 22:30:49'),(6,968743629,1,2,'Cliente','2022-01-19 01:39:40','2022-01-19 01:39:40');
+INSERT INTO `telefonos` VALUES (1,956874563,1,1,'Funcionario','2021-12-13 22:11:55','2021-12-13 22:11:55'),(5,885645783,1,1,'Cliente','2021-12-27 22:30:49','2021-12-27 22:30:49'),(6,968743629,1,2,'Cliente','2022-01-19 01:39:40','2022-01-19 01:39:40'),(7,963872680,1,3,'Cliente','2022-03-29 16:49:58','2022-03-29 16:49:58'),(8,968756413,1,4,'Cliente','2022-04-15 18:51:25','2022-04-15 18:51:25'),(9,963245678,1,5,'Cliente','2022-04-16 14:53:27','2022-04-16 14:53:27');
 /*!40000 ALTER TABLE `telefonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -477,4 +479,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-28 17:28:20
+-- Dump completed on 2022-04-21 13:23:36
