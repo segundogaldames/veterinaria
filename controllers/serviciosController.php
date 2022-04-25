@@ -43,6 +43,34 @@ class serviciosController extends Controller
         $this->_view->renderizar('view');
     }
 
+    public function serviciosFecha()
+    {
+        $this->verificarMensajes();
+
+        $this->_view->assign('titulo','Servicios Fecha');
+        $this->_view->assign('title','Servicios');
+        $this->_view->assign('enviar', CTRL);
+
+        if ($this->getAlphaNum('enviar') == CTRL) {
+            $this->_view->assign('servicio', $_POST);
+
+            if (!$this->getSql('fecha')) {
+                $this->_view->assign('_error', 'Seleccione la fecha del servicio');
+                $this->_view->renderizar('serviciosFecha');
+                exit;
+            }
+
+            $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('horario_id','DESC')->where('created_at','like','%'.$this->getSql('fecha') . '%')->get();
+
+            if ($servicios) {
+                # code...
+                $this->_view->assign('servicios', $servicios);
+            }
+        }
+
+        $this->_view->renderizar('serviciosFecha');
+    }
+
     public function edit($id = null)
     {
         $this->verificarRolAdminVeterinario();

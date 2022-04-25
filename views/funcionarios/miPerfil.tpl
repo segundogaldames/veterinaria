@@ -96,7 +96,7 @@
                 <div class="sidebar-box ftco-animate">
                     <div class="row">
                         <div class="col-md-6">
-                            <form class="form-inline" action="{$_layoutParams.root}reservas/horariosReserva" method="post">
+                            <form class="form-inline" action="{$_layoutParams.root}servicios/serviciosFecha" method="post">
                                 <div class="form-group mx-sm-3 mb-2">
                                     <input type="date" name="fecha" value="{$fecha.fecha|default:""}" class="form-control"
                                         id="inputPassword2" placeholder="Fecha">
@@ -109,7 +109,7 @@
                             <a href="{$_layoutParams.root}servicios" class="btn btn-outline-primary">Ver Servicios</a>
                         </div>
                     </div>
-                    <h3>Reservas</h3>
+                    <h3>Servicios</h3>
                     {if isset($servicios) && count($servicios)}
                         <table class="table table-hover">
                             <tr>

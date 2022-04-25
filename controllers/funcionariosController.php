@@ -66,9 +66,10 @@ class funcionariosController extends Controller
         foreach (Session::get('usuario_roles')->funcionarioRol as $funcionarioRol) {
             //echo $funcionarioRol->rol->nombre;
             if ($funcionarioRol->rol->nombre == 'Administrador(a)' || $funcionarioRol->rol->nombre == 'Supervisor(a)') {
-                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->get();
+                $servicios =
+                Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->where('created_at','like', '%' .$hoy . '%')->get();
             }elseif ($funcionarioRol->rol->nombre == 'Veterinario(a)') {
-                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->where('funcionario_id', Session::get('funcionario_id'))->where('status', 1)->get();
+                $servicios = Servicio::with(['paciente','funcionario','servicioTipo','horario'])->orderBy('created_at','DESC')->orderBy('horario_id','DESC')->where('funcionario_id', Session::get('funcionario_id'))->where('status', 1)->where('created_at', 'like', '%' .$hoy . '%')->get();
             }
         }
 
