@@ -32,6 +32,13 @@
                                 <a href="{$_layoutParams.root}pacientetipos/" class="list-group-item list-group-item-action">Paciente Tipos</a>
                             {/if}
                         </div>
+                        <h3 class="text-success">Productos</h3>
+                        <div class="list-group mb-2">
+                            <a href="{$_layoutParams.root}productos/"
+                                class="list-group-item list-group-item-action">Productos</a>
+                            <a href="{$_layoutParams.root}productotipos/"
+                                class="list-group-item list-group-item-action">Producto Tipos</a>
+                        </div>
                         <h3 class="text-success">Reservas</h3>
                         <div class="list-group mb-2">
                             {if Helper::getRolAdmin()}
