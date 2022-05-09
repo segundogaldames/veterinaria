@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
 --
 -- Host: localhost    Database: veterinaria
 -- ------------------------------------------------------
--- Server version	8.0.28-0ubuntu0.20.04.4
+-- Server version	8.0.29-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -238,6 +238,38 @@ LOCK TABLES `producto_tipos` WRITE;
 /*!40000 ALTER TABLE `producto_tipos` DISABLE KEYS */;
 INSERT INTO `producto_tipos` VALUES (1,'Alimentos','2022-05-02 22:09:15','2022-05-02 22:30:09'),(2,'Medicamento','2022-05-02 22:09:30','2022-05-02 22:09:30');
 /*!40000 ALTER TABLE `producto_tipos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` text,
+  `precio_venta` int DEFAULT NULL,
+  `status` int NOT NULL,
+  `producto_tipo_id` int NOT NULL,
+  `paciente_tipo_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos`
+--
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'A0001','Alimento de perro','Alimento de perro cachorro Champion Dog de 3 kgs',9990,2,1,1,'2022-05-08 19:24:05','2022-05-08 21:04:46'),(2,'A0002','Alimento de gato','Alimento de gato marca master Cat de 3 kgs de pollo',12990,1,1,2,'2022-05-08 20:25:00','2022-05-08 21:01:36');
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -505,4 +537,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-02 22:32:17
+-- Dump completed on 2022-05-08 21:09:56
