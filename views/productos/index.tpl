@@ -16,7 +16,7 @@
                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Tipo Producto</th>
-                            <th>Tipo Paciente</th>
+                            <th>Tipo Mascota</th>
                             <th>Precio Venta</th>
                             <th>Status</th>
                         </tr>

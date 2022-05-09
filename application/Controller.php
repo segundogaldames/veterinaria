@@ -95,7 +95,7 @@ abstract class Controller
 	{
 		if(isset($_POST[$clave]) && !empty($_POST[$clave])):
 			$_POST[$clave] = htmlspecialchars($_POST[$clave], ENT_QUOTES); //transforma comillas simpes y dobles
-			return $_POST[$clave];
+			return trim($_POST[$clave]);
 		endif;
 
 		return '';
