@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0-rc.0, created on 2022-04-16 16:10:03
+/* Smarty version 4.0.0-rc.0, created on 2022-04-25 11:47:42
   from '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0-rc.0',
-  'unifunc' => 'content_625b229b2757f3_37511765',
+  'unifunc' => 'content_6266c29e8b2596_32536913',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7799f157368e71a54b70448bbf513ea553aced66' => 
     array (
       0 => '/var/www/html/veterinaria/views/funcionarios/miPerfil.tpl',
-      1 => 1650139800,
+      1 => 1650901656,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/_mensajes.tpl' => 1,
   ),
 ),false)) {
-function content_625b229b2757f3_37511765 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6266c29e8b2596_32536913 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/veterinaria/libs/smarty/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <section class="ftco-section ftco-degree-bg">
@@ -149,7 +149,7 @@ usuarios/editPassword/<?php echo $_smarty_tpl->tpl_vars['funcionario']->value['i
                     <div class="row">
                         <div class="col-md-6">
                             <form class="form-inline" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-reservas/horariosReserva" method="post">
+servicios/serviciosFecha" method="post">
                                 <div class="form-group mx-sm-3 mb-2">
                                     <input type="date" name="fecha" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['fecha']->value['fecha'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 " class="form-control"
@@ -165,7 +165,7 @@ reservas/horariosReserva" method="post">
 servicios" class="btn btn-outline-primary">Ver Servicios</a>
                         </div>
                     </div>
-                    <h3>Reservas</h3>
+                    <h3>Servicios</h3>
                     <?php if ((isset($_smarty_tpl->tpl_vars['servicios']->value)) && count($_smarty_tpl->tpl_vars['servicios']->value)) {?>
                         <table class="table table-hover">
                             <tr>

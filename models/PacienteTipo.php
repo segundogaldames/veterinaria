@@ -17,4 +17,9 @@ class PacienteTipo extends Model
     {
         return $this->hasMany(Reserva::class);
     }
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class);
+    }
 }
